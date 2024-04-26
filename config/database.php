@@ -1,0 +1,22 @@
+<?php
+// deklarasi parameter koneksi database
+// $host     = "localhost";            // server database, default “localhost” atau “127.0.0.1”
+// $username = "eres3886_betting";                 // username database, default “root”
+// $password = "betting123!";                     // password database, default kosong
+// $database = "eres3886_alumni"; // memilih database yang akan digunakan
+
+$host     = "localhost";            // server database, default “localhost” atau “127.0.0.1”
+$username = "root";                 // username database, default “root”
+$password = "";                     // password database, default kosong
+$database = "gudang"; // memilih database yang akan digunakan
+
+
+// buat koneksi database
+$mysqli = mysqli_connect($host, $username, $password, $database);
+
+// cek koneksi
+// jika koneksi gagal 
+if (!$mysqli) {
+  // tampilkan pesan gagal koneksi
+  die('Koneksi Database Gagal : ' . mysqli_connect_error());
+}

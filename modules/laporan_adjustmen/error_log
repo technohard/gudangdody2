@@ -1,0 +1,13 @@
+[28-Feb-2024 10:16:53 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/barang/proses_entri.php on line 27
+[29-Feb-2024 03:50:46 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/barang/proses_entri.php on line 27
+[29-Feb-2024 10:52:42 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/barang/proses_entri.php on line 29
+[06-Mar-2024 06:29:07 UTC] PHP Notice:  Undefined index: pemasungan_barang in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 25
+[06-Mar-2024 06:29:07 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 31
+[06-Mar-2024 07:04:53 UTC] PHP Notice:  Undefined index: pemasungan_barang in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 25
+[06-Mar-2024 07:04:53 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 31
+[06-Mar-2024 07:07:44 UTC] PHP Notice:  Undefined index: pemasungan_barang in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 25
+[06-Mar-2024 07:07:44 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 31
+[06-Mar-2024 07:09:38 UTC] PHP Notice:  Undefined index: pemasungan_barang in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 25
+[06-Mar-2024 07:09:38 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 31
+[06-Mar-2024 07:10:06 UTC] PHP Notice:  Undefined index: pemasungan_barang in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 25
+[06-Mar-2024 07:10:06 UTC] PHP Notice:  Only variables should be passed by reference in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/proses_entri.php on line 31

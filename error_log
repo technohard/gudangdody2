@@ -1,0 +1,48 @@
+[28-Feb-2024 10:22:20 UTC] PHP Notice:  Undefined index: PPKEK in /home/eres3886/public_html/konsumen/modules/barang-masuk/tampil_data.php on line 107
+[28-Feb-2024 10:22:20 UTC] PHP Notice:  Undefined index: Freemovement in /home/eres3886/public_html/konsumen/modules/barang-masuk/tampil_data.php on line 108
+[29-Feb-2024 08:33:34 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 08:33:34 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 08:34:33 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 08:34:33 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 09:07:13 UTC] PHP Notice:  Undefined index: jenis in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:07:13 UTC] PHP Notice:  Undefined index: jenis in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:07:52 UTC] PHP Notice:  Undefined index: id_barang in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:07:52 UTC] PHP Notice:  Undefined index: id_barang in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:08:34 UTC] PHP Notice:  Undefined index: id_barang in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:08:34 UTC] PHP Notice:  Undefined index: id_barang in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 184
+[29-Feb-2024 09:09:46 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 09:09:46 UTC] PHP Notice:  Undefined index: satuan in /home/eres3886/public_html/konsumen/modules/laporan-barang-masuk/tampil_data.php on line 187
+[29-Feb-2024 10:29:53 UTC] PHP Notice:  Undefined index: tanggale in /home/eres3886/public_html/konsumen/modules/laporan-stok/tampil_data.php on line 199
+[29-Feb-2024 10:29:53 UTC] PHP Notice:  Undefined index: tanggale in /home/eres3886/public_html/konsumen/modules/laporan-stok/tampil_data.php on line 199
+[01-Mar-2024 01:31:45 UTC] PHP Warning:  include(modules/laporan_adjustment/form_entri.php): failed to open stream: No such file or directory in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 01:31:45 UTC] PHP Warning:  include(): Failed opening 'modules/laporan_adjustment/form_entri.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 01:32:38 UTC] PHP Warning:  include(modules/laporan_adjustment/form_entri.php): failed to open stream: No such file or directory in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 01:32:38 UTC] PHP Warning:  include(): Failed opening 'modules/laporan_adjustment/form_entri.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 01:33:17 UTC] PHP Warning:  include(modules/laporan_adjustment/form_entri.php): failed to open stream: No such file or directory in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 01:33:17 UTC] PHP Warning:  include(): Failed opening 'modules/laporan_adjustment/form_entri.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/eres3886/public_html/konsumen/content.php on line 31
+[01-Mar-2024 06:23:25 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/barang/form_entri.php on line 56
+[01-Mar-2024 06:23:55 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/barang/form_entri.php on line 56
+[01-Mar-2024 08:18:00 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[01-Mar-2024 08:18:00 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[01-Mar-2024 09:26:07 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/barang/form_entri.php on line 56
+[01-Mar-2024 12:56:35 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 06:28:16 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 06:29:49 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:03:29 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:04:18 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:04:24 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:07:15 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:08:39 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:09:41 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:10:09 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[06-Mar-2024 07:13:04 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[15-Mar-2024 09:19:14 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/barang/form_entri.php on line 56
+[16-Mar-2024 04:05:27 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[19-Mar-2024 02:08:00 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
+[19-Mar-2024 08:01:56 UTC] PHP Notice:  Undefined index: username in /home/eres3886/public_html/konsumen/proses_login.php on line 6
+[19-Mar-2024 08:01:56 UTC] PHP Notice:  Undefined index: password in /home/eres3886/public_html/konsumen/proses_login.php on line 7
+[19-Mar-2024 14:00:49 UTC] PHP Notice:  Undefined index: username in /home/eres3886/public_html/konsumen/proses_login.php on line 6
+[19-Mar-2024 14:00:49 UTC] PHP Notice:  Undefined index: password in /home/eres3886/public_html/konsumen/proses_login.php on line 7
+[19-Mar-2024 14:00:49 UTC] PHP Notice:  Undefined index: username in /home/eres3886/public_html/konsumen/proses_login.php on line 6
+[19-Mar-2024 14:00:49 UTC] PHP Notice:  Undefined index: password in /home/eres3886/public_html/konsumen/proses_login.php on line 7
+[22-Mar-2024 06:47:05 UTC] PHP Warning:  A non-numeric value encountered in /home/eres3886/public_html/konsumen/modules/laporan_adjustmen/form_entri.php on line 56
