@@ -6,6 +6,69 @@ require_once("../../assets/js/plugin/dompdf/autoload.inc.php");
 // mereferensikan Dompdf namespace
 use Dompdf\Dompdf;
 
+function akumulasiSaldoAwal($tgl1,$tgl2,$id_barang,$mysqli){
+  $saldo = 0;
+  //2024-04-01
+  //0123456789
+  $day = substr($tgl1,8,2);
+  $month = substr($tgl1,5,2);
+  $year = substr($tgl1,0,4);
+  $tgl_awalx=$year.'-'.$month.'-'.'01';
+  
+  if($day!='01'){
+
+    //total saldo masuk sebelum tgl akhir
+    //hitung data masuk
+    $qrymasukx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+    $res = ($qrymasukx) ? mysqli_fetch_assoc($qrymasukx) : 0;
+    $saldo_masukx = (isset($res['saldo_masuk']))? $res['saldo_masuk'] : 0; 
+
+    //hitung data keluar
+    $qrykeluarx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_keluar FROM tbl_barang_keluar a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+    $res = ($qrykeluarx) ? mysqli_fetch_assoc($qrykeluarx) : 0;
+    $saldo_keluarx = (isset($res['saldo_keluar']))? $res['saldo_keluar'] : 0; 
+
+    //hitung data penyesuaian
+    $qryadjx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_adjustment FROM tbl_adjustment a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+    $res = ($qryadjx) ? mysqli_fetch_assoc($qryadjx) : 0;
+    $saldo_adjustmentx = (isset($res['saldo_adjustment']))? $res['saldo_adjustment'] : 0; 
+
+    $saldo = ( $saldo_masukx - $saldo_keluarx ) + $saldo_adjustmentx;
+
+  }
+
+  return $saldo;
+}
+
+function akumulasiStokOpname($tgl1,$tgl2,$id_barang,$mysqli){
+
+  $saldo = 0;
+  //2024-04-01
+  //0123456789
+  $day = substr($tgl1,8,2);
+  $month = substr($tgl1,5,2);
+  $year = substr($tgl1,0,4);
+  $tgl_awalx=$year.'-'.$month.'-'.'01';
+  
+  if($day!='01'){
+
+    //hitung data stok opname
+    $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+    $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
+    $stock_opnamex = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+
+    $saldo = $stock_opnamex;
+
+  }
+
+  return $saldo;
+
+}
+
 // pengecekan session login user 
 // jika user belum login
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
@@ -24,6 +87,9 @@ else {
   $tanggal_awal  = isset($_GET['tanggal_awal'])?$_GET['tanggal_awal']:'';
   $tanggal_akhir  = isset($_GET['tanggal_akhir'])?$_GET['tanggal_akhir']:'';
   $jenis  = isset($_GET['jenis'])?$_GET['jenis']:'';
+
+  $tanggal_awalx  = date('d-m-Y', strtotime($tanggal_awal));
+  $tanggal_akhirx = date('d-m-Y', strtotime($tanggal_akhir));
 
   // variabel untuk nomor urut tabel 
   $no = 1;
@@ -48,7 +114,8 @@ else {
             </head>
             <body class="text-dark">
               <div class="text-center mb-4">
-                <h4>LAPORAN STOK SELURUH BARANG</h4>
+                <h4 style="margin-bottom:2px;padding-bottom:2px;">LAPORAN STOK SELURUH BARANG</h4>
+                <h4 style="margin-top:2px;padding-top:2px;">Periode : '.$tanggal_awalx.' s/d '.$tanggal_akhirx.'</h4>
               </div>
               <hr>
               <div class="mt-4">
@@ -59,7 +126,6 @@ else {
                       <th>Kode Barang</th>
                       <th>Kategori</th>
                       <th>Nama Barang</th>
-                      <th>Jenis Barang</th>
                       <th>Satuan</th>
                       <th>Saldo Awal</th>
                       <th>Pemasukan</th>
@@ -86,6 +152,18 @@ else {
       $saldo_awal = 0;
       $stock_opname = 0;
       $id_barang = $data['id_barang'];
+
+      
+
+      //hitung saldo awal
+      $periode = substr($tanggal_awal,0,4).substr($tanggal_awal,5,2);
+      $qrysawal = mysqli_query($mysqli,"SELECT a.saldo_awal FROM tbl_saldo a WHERE a.periode='$periode' AND a.id_barang = '$id_barang' ; ") 
+      or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+      $res = ($qrysawal) ? mysqli_fetch_assoc($qrysawal) : 0;
+      $saldo_awal = (isset($res['saldo_awal']))? $res['saldo_awal'] : 0; 
+
+      $saldo_akumulasi=akumulasiSaldoAwal($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $saldo_awal = $saldo_awal + $saldo_akumulasi;
       
       //hitung data masuk
       $qrymasuk = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
@@ -109,7 +187,10 @@ else {
       $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
       or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
       $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
-      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0;
+      
+      $saldo_akumulasi=akumulasiStokOpname($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $stock_opname = $stock_opname + $saldo_akumulasi;
 
       $saldo_barang = $saldo_awal + ($saldo_masuk - $saldo_keluar) + $saldo_adjustment ; 
       $selisih = 0;
@@ -185,7 +266,6 @@ else {
                       <th>Kode Barang</th>
                       <th>Kategori</th>
                       <th>Nama Barang</th>
-                      <th>Jenis Barang</th>
                       <th>Satuan</th>
                       <th>Saldo Awal</th>
                       <th>Pemasukan</th>
@@ -212,6 +292,16 @@ else {
       $saldo_awal = 0;
       $stock_opname = 0;
       $id_barang = $data['id_barang'];
+
+      //hitung saldo awal
+      $periode = substr($tanggal_awal,0,4).substr($tanggal_awal,5,2);
+      $qrysawal = mysqli_query($mysqli,"SELECT a.saldo_awal FROM tbl_saldo a WHERE a.periode='$periode' AND a.id_barang = '$id_barang' ; ") 
+      or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+      $res = ($qrysawal) ? mysqli_fetch_assoc($qrysawal) : 0;
+      $saldo_awal = (isset($res['saldo_awal']))? $res['saldo_awal'] : 0;
+      
+      $saldo_akumulasi=akumulasiSaldoAwal($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $saldo_awal = $saldo_awal + $saldo_akumulasi;
       
       //hitung data masuk
       $qrymasuk = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
@@ -235,7 +325,10 @@ else {
       $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
       or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
       $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
-      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0;
+      
+      $saldo_akumulasi=akumulasiStokOpname($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $stock_opname = $stock_opname + $saldo_akumulasi;
 
       $saldo_barang = $saldo_awal + ($saldo_masuk - $saldo_keluar) + $saldo_adjustment ; 
       $selisih = 0;
@@ -313,7 +406,6 @@ else {
                       <th>Kode Barang</th>
                       <th>Kategori</th>
                       <th>Nama Barang</th>
-                      <th>Jenis Barang</th>
                       <th>Satuan</th>
                       <th>Saldo Awal</th>
                       <th>Pemasukan</th>
@@ -341,6 +433,16 @@ else {
       $saldo_awal = 0;
       $stock_opname = 0;
       $id_barang = $data['id_barang'];
+
+      //hitung saldo awal
+      $periode = substr($tanggal_awal,0,4).substr($tanggal_awal,5,2);
+      $qrysawal = mysqli_query($mysqli,"SELECT a.saldo_awal FROM tbl_saldo a WHERE a.periode='$periode' AND a.id_barang = '$id_barang' ; ") 
+      or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+      $res = ($qrysawal) ? mysqli_fetch_assoc($qrysawal) : 0;
+      $saldo_awal = (isset($res['saldo_awal']))? $res['saldo_awal'] : 0;
+      
+      $saldo_akumulasi=akumulasiSaldoAwal($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $saldo_awal = $saldo_awal + $saldo_akumulasi;
       
       //hitung data masuk
       $qrymasuk = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
@@ -364,7 +466,10 @@ else {
       $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
       or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
       $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
-      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0;
+      
+      $saldo_akumulasi=akumulasiStokOpname($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $stock_opname = $stock_opname + $saldo_akumulasi;
 
       $saldo_barang = $saldo_awal + ($saldo_masuk - $saldo_keluar) + $saldo_adjustment ; 
       $selisih = 0;
@@ -441,7 +546,6 @@ else {
                       <th>Kode Barang</th>
                       <th>Kategori</th>
                       <th>Nama Barang</th>
-                      <th>Jenis Barang</th>
                       <th>Satuan</th>
                       <th>Saldo Awal</th>
                       <th>Pemasukan</th>
@@ -469,6 +573,16 @@ else {
       $saldo_awal = 0;
       $stock_opname = 0;
       $id_barang = $data['id_barang'];
+
+      //hitung saldo awal
+      $periode = substr($tanggal_awal,0,4).substr($tanggal_awal,5,2);
+      $qrysawal = mysqli_query($mysqli,"SELECT a.saldo_awal FROM tbl_saldo a WHERE a.periode='$periode' AND a.id_barang = '$id_barang' ; ") 
+      or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+      $res = ($qrysawal) ? mysqli_fetch_assoc($qrysawal) : 0;
+      $saldo_awal = (isset($res['saldo_awal']))? $res['saldo_awal'] : 0; 
+
+      $saldo_akumulasi=akumulasiSaldoAwal($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $saldo_awal = $saldo_awal + $saldo_akumulasi;
       
       //hitung data masuk
       $qrymasuk = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
@@ -492,7 +606,10 @@ else {
       $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
       or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
       $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
-      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0;
+      
+      $saldo_akumulasi=akumulasiStokOpname($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $stock_opname = $stock_opname + $saldo_akumulasi;
 
       $saldo_barang = $saldo_awal + ($saldo_masuk - $saldo_keluar) + $saldo_adjustment ; 
       $selisih = 0;
@@ -567,7 +684,6 @@ else {
                       <th>Kode Barang</th>
                       <th>Kategori</th>
                       <th>Nama Barang</th>
-                      <th>Jenis Barang</th>
                       <th>Satuan</th>
                       <th>Saldo Awal</th>
                       <th>Pemasukan</th>
@@ -594,6 +710,16 @@ else {
       $saldo_awal = 0;
       $stock_opname = 0;
       $id_barang = $data['id_barang'];
+
+      //hitung saldo awal
+      $periode = substr($tanggal_awal,0,4).substr($tanggal_awal,5,2);
+      $qrysawal = mysqli_query($mysqli,"SELECT a.saldo_awal FROM tbl_saldo a WHERE a.periode='$periode' AND a.id_barang = '$id_barang' ; ") 
+      or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
+      $res = ($qrysawal) ? mysqli_fetch_assoc($qrysawal) : 0;
+      $saldo_awal = (isset($res['saldo_awal']))? $res['saldo_awal'] : 0;
+      
+      $saldo_akumulasi=akumulasiSaldoAwal($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $saldo_awal = $saldo_awal + $saldo_akumulasi;
       
       //hitung data masuk
       $qrymasuk = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
@@ -617,7 +743,10 @@ else {
       $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND a.barang = '$id_barang' ; ") 
       or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
       $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
-      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
+      $stock_opname = (isset($res['stock_opname']))? $res['stock_opname'] : 0;
+      
+      $saldo_akumulasi=akumulasiStokOpname($tanggal_awal,$tanggal_akhir,$id_barang,$mysqli);
+      $stock_opname = $stock_opname + $saldo_akumulasi;
 
       $saldo_barang = $saldo_awal + ($saldo_masuk - $saldo_keluar) + $saldo_adjustment ; 
       $selisih = 0;

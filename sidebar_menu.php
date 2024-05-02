@@ -7,6 +7,7 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
 }
 // jika file di include oleh file lain, tampilkan isi file
 else {
+  require_once "./lang.php";
   // pengecekan hak akses untuk menampilkan menu sesuai dengan hak akses
   // jika hak akses = Administrator, tampilkan menu
   if ($_SESSION['hak_akses'] == 'Administrator') {
@@ -16,7 +17,7 @@ else {
       <li class="nav-item active">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -26,7 +27,7 @@ else {
       <li class="nav-item">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -38,13 +39,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -52,17 +53,17 @@ else {
           <ul class="nav nav-collapse">
             <li class="active">
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?> </span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?> </span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </span>
               </a>
             </li>
           </ul>
@@ -76,13 +77,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -90,17 +91,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?> </span>
               </a>
             </li>
             <li class="active">
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -114,13 +115,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -128,17 +129,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li class="active">
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -152,13 +153,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -166,17 +167,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -191,13 +192,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Transaksi</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'transaksi','Transaksi') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=barang_masuk">
           <i class="fas fa-sign-in-alt"></i>
-          <p>Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangMasuk','Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -208,13 +209,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Transaksi</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'transaksi','Transaksi') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=barang_masuk">
           <i class="fas fa-sign-in-alt"></i>
-          <p>Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangMasuk','Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -225,7 +226,7 @@ else {
       <li class="nav-item active">
         <a href="?module=barang_keluar">
           <i class="fas fa-sign-out-alt"></i>
-          <p>Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -235,7 +236,7 @@ else {
       <li class="nav-item">
         <a href="?module=barang_keluar">
           <i class="fas fa-sign-out-alt"></i>
-          <p>Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -246,7 +247,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'adjustment','Adjustment') ?></p>
         </a>
       </li>
 
@@ -258,7 +259,7 @@ else {
       <li class="nav-item ">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'adjustment','Adjustment') ?></p>
         </a>
       </li>
     
@@ -270,7 +271,7 @@ else {
       <li class="nav-item active">
         <a href="?module=stok_opname">
           <i class="fas fa-file-signature"></i>
-          <p>Stok Opname</p>
+          <p><?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?></p>
         </a>
       </li>
 
@@ -282,7 +283,7 @@ else {
       <li class="nav-item">
         <a href="?module=stok_opname">
           <i class="fas fa-file-signature"></i>
-          <p>Stok Opname</p>
+          <p><?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?></p>
         </a>
       </li>
 
@@ -295,13 +296,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?></p>
         </a>
       </li>
 
@@ -314,13 +315,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?></p>
         </a>
       </li>
       
@@ -333,7 +334,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -343,7 +344,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -354,7 +355,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -364,7 +365,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -376,13 +377,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Pengaturan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'pengaturan','Pengaturan') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=user">
           <i class="fas fa-user"></i>
-          <p>Manajemen User</p>
+          <p><?php echo transWord($_SESSION['Lang'],'manajemenUser','Manajemen User') ?></p>
         </a>
       </li>
     <?php
@@ -393,13 +394,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Pengaturan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'pengaturan','Pengaturan') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=user">
           <i class="fas fa-user"></i>
-          <p>Manajemen User</p>
+          <p><?php echo transWord($_SESSION['Lang'],'manajemenUser','Manajemen User') ?></p>
         </a>
       </li>
     <?php
@@ -416,7 +417,7 @@ else {
       <li class="nav-item active">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -426,7 +427,7 @@ else {
       <li class="nav-item">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -438,13 +439,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -452,17 +453,17 @@ else {
           <ul class="nav nav-collapse">
             <li class="active">
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -476,13 +477,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -490,17 +491,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li class="active">
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -514,13 +515,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item active submenu">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -528,17 +529,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li class="active">
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -552,13 +553,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Master</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
       </li>
 
       <li class="nav-item">
         <a data-toggle="collapse" href="#barang">
           <i class="fas fa-clone"></i>
-          <p>Barang</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
           <span class="caret"></span>
         </a>
 
@@ -566,17 +567,17 @@ else {
           <ul class="nav nav-collapse">
             <li>
               <a href="?module=barang">
-                <span class="sub-item">Data Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=jenis">
-                <span class="sub-item">Jenis Barang</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
               </a>
             </li>
             <li>
               <a href="?module=satuan">
-                <span class="sub-item">Satuan</span>
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
           </ul>
@@ -591,13 +592,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Transaksi</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'transaksi','Transaksi') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=barang_masuk">
           <i class="fas fa-sign-in-alt"></i>
-          <p>Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangMasuk','Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -608,13 +609,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Transaksi</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'transaksi','Transaksi') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=barang_masuk">
           <i class="fas fa-sign-in-alt"></i>
-          <p>Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangMasuk','Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -625,7 +626,7 @@ else {
       <li class="nav-item active">
         <a href="?module=barang_keluar">
           <i class="fas fa-sign-out-alt"></i>
-          <p>Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -635,7 +636,7 @@ else {
       <li class="nav-item">
         <a href="?module=barang_keluar">
           <i class="fas fa-sign-out-alt"></i>
-          <p>Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></p>
         </a>
       </li>
       <?php
@@ -646,7 +647,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'adjustment','Adjustment') ?></p>
         </a>
       </li>
 
@@ -658,7 +659,7 @@ else {
       <li class="nav-item ">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'adjustment','Adjustment') ?></p>
         </a>
       </li>
     
@@ -670,7 +671,7 @@ else {
       <li class="nav-item active">
         <a href="?module=stok_opname">
           <i class="fas fa-file-signature"></i>
-          <p>Stok Opname</p>
+          <p><?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?></p>
         </a>
       </li>
 
@@ -682,7 +683,7 @@ else {
       <li class="nav-item">
         <a href="?module=stok_opname">
           <i class="fas fa-file-signature"></i>
-          <p>Stok Opname</p>
+          <p><?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?></p>
         </a>
       </li>
 
@@ -695,13 +696,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok </p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?> </p>
         </a>
       </li>
       
@@ -713,13 +714,13 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok </p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?> </p>
         </a>
       </li>
       
@@ -731,7 +732,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -741,7 +742,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -752,7 +753,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -762,7 +763,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -780,7 +781,7 @@ else {
       <li class="nav-item active">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -790,7 +791,7 @@ else {
       <li class="nav-item">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p>Dashboard</p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
         </a>
       </li>
     <?php
@@ -802,19 +803,19 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item active">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok </p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?> </p>
         </a>
       </li>
       <li class="nav-item ">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanAdjustment','Laporan Adjustment') ?></p>
         </a>
       </li>
       
@@ -826,19 +827,19 @@ else {
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
-        <h4 class="text-section">Laporan</h4>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></h4>
       </li>
 
       <li class="nav-item">
         <a href="?module=laporan_stok">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Stok </p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?> </p>
         </a>
       </li>
       <li class="nav-item ">
         <a href="?module=laporan_adjustmen">
           <i class="fas fa-file-signature"></i>
-          <p>Laporan Adjustment</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanAdjustment','Laporan Adjustment') ?></p>
         </a>
       </li>
       
@@ -850,7 +851,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -860,7 +861,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_masuk">
           <i class="fas fa-file-import"></i>
-          <p>Laporan Barang Masuk</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangMasuk','Laporan Barang Masuk') ?></p>
         </a>
       </li>
     <?php
@@ -871,7 +872,7 @@ else {
       <li class="nav-item active">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
     <?php
@@ -881,7 +882,7 @@ else {
       <li class="nav-item">
         <a href="?module=laporan_barang_keluar">
           <i class="fas fa-file-export"></i>
-          <p>Laporan Barang Keluar</p>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanBarangKeluar','Laporan Barang Keluar') ?></p>
         </a>
       </li>
 <?php

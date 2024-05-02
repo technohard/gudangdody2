@@ -163,9 +163,11 @@ else { ?>
                 $no = 1;
 
                 // sql statement untuk menampilkan data dari tabel "tbl_barang_keluar", tabel "tbl_barang", dan tabel "tbl_satuan" berdasarkan "tanggal"
-                $query = mysqli_query($mysqli, "SELECT a.id_transaksi, a.tanggal, a.barang, a.jumlah, b.nama_barang, c.nama_satuan, a.jns_dok, a.tgl_dok, b.satuan, a.nama_pengirim
-                                                FROM tbl_barang_keluar as a INNER JOIN tbl_barang as b INNER JOIN tbl_satuan as c 
-                                                ON a.barang=b.id_barang AND b.satuan=c.id_satuan 
+                $query = mysqli_query($mysqli, "SELECT a.id_transaksi, a.tanggal, a.barang, a.jumlah, b.nama_barang, c.nama_satuan, a.jns_dok,a.no_dok, a.tgl_dok, b.satuan, a.nama_pengirim,d.nama_jenis
+                                                FROM tbl_barang_keluar as a 
+                                                INNER JOIN tbl_barang as b ON a.barang=b.id_barang 
+                                                INNER JOIN tbl_satuan as c ON b.satuan=c.id_satuan 
+                                                INNER JOIN tbl_jenis as d ON b.jenis=d.id_jenis 
                                                 WHERE a.tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir' ORDER BY a.id_transaksi ASC")
                                                 or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
                 // ambil data hasil query
@@ -174,17 +176,14 @@ else { ?>
                   <tr>
                      <td width="50" class="text-center"><?php echo $no++; ?></td>
                     <td width="90" class="text-center"><?php echo $data['jns_dok']; ?></td>
-                    <td width="70" class="text-center"><?php echo date('d-m-Y', strtotime($data['tgl_dok'])); ?></td>
-                    
+                    <td width="90" class="text-center"><?php echo $data['no_dok']; ?></td>
                      <td width="70" class="text-center"><?php echo date('d-m-Y', strtotime($data['tanggal'])); ?></td>
-                    
-                    
-                    
+                                         
                     <td width="220"><?php echo $data['nama_pengirim']; ?> </td>
                   <td width="60"><?php echo $data['barang']; ?></td>
-                    <td width="60"><?php echo $data['nama_satuan']; ?></td>
+                    <td width="60"><?php echo $data['nama_jenis']; ?></td>
                     <td width="60"><?php echo $data['nama_barang']; ?></td>
-                    <td width="60"><?php echo $data['satuan']; ?></td>
+                    <td width="60"><?php echo $data['nama_satuan']; ?></td>
                     <td width="100" class="text-right"><?php echo number_format($data['jumlah'], 0, '', '.'); ?></td>
                   </tr>
                 <?php } ?>

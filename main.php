@@ -252,6 +252,18 @@ else {
 
     <!-- Custom Scripts -->
     <script src="assets/js/plugin.js"></script>
+    <script>
+      $('#basic-datatables').DataTable({
+        language: {
+            info: '<?php echo transWord($_SESSION['Lang'],'tampilkanHalaman','Tampilkan Halaman') ?> _PAGE_ of _PAGES_',
+            infoEmpty: 'No records available',
+            infoFiltered: '(filtered from _MAX_ total records)',
+            lengthMenu: '<?php echo transWord($_SESSION['Lang'],'tampilkan','Tampilkan') ?> _MENU_ <?php echo transWord($_SESSION['Lang'],'data','data') ?>',
+            zeroRecords: 'Nothing found - sorry',
+            search: "<?php echo transWord($_SESSION['Lang'],'cari','Cari') ?>:",
+        }
+      });
+    </script>
     <script src="assets/js/form-validation.js"></script>
     <script>
 
@@ -263,13 +275,13 @@ else {
 
       $(document).ready(function() {
 
-        console.log("Domain: " + domain );
+        //console.log("Domain: " + domain );
 
       });
 
       function setLang(val){
-          console.log('tes');          
-          var langValue = val;
+
+        var langValue = val;
             $.ajax({
               type: "GET", // mengirim data dengan method GET 
               url: `${domain}/modules/lang/get_lang.php`, // proses get data berdasarkan "id_barang"
@@ -278,13 +290,20 @@ else {
               }, // data yang dikirim
               dataType: "JSON", // tipe data JSON
               success: function(result) { // ketika proses get data selesai
-                console.log(result);
+
                 // set focus
                 if(langValue=='Mandarin'){
                   $('.pilihBahasa').html(`普通话`);
+                  
                 }else{
                   $('.pilihBahasa').html(`${langValue}`);
                 }
+
+                setTimeout(() => {
+                  location.reload();
+                }, 300);
+
+
               }
             });
 

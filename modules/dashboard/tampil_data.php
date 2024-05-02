@@ -29,7 +29,7 @@ else {
       <div class="d-flex align-items-left align-items-md-top flex-column flex-md-row">
         <div class="page-header text-white">
           <!-- judul halaman -->
-          <h4 class="page-title text-white"><i class="fas fa-home mr-2"></i> Dashboard</h4>
+          <h4 class="page-title text-white"><i class="fas fa-home mr-2"></i> <?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?> </h4>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@ else {
               </div>
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">Data Barang</p>
+                  <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></p>
                   <?php
                   // sql statement untuk menampilkan jumlah data pada tabel "tbl_barang"
                   $query = mysqli_query($mysqli, "SELECT * FROM tbl_barang")
@@ -76,7 +76,7 @@ else {
               </div>
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">Data Barang Masuk</p>
+                  <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataBarangMasuk','Data Barang Masuk') ?> </p>
                   <?php
                   // sql statement untuk menampilkan jumlah data pada tabel "tbl_barang_masuk"
                   $query = mysqli_query($mysqli, "SELECT * FROM tbl_barang_masuk")
@@ -104,7 +104,7 @@ else {
               </div>
               <div class="col-7 col-stats">
                 <div class="numbers">
-                  <p class="card-category">Data Barang Keluar</p>
+                  <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataBarangKeluar','Data Barang Keluar') ?> </p>
                   <?php
                   // sql statement untuk menampilkan jumlah data pada tabel "tbl_barang_keluar"
                   $query = mysqli_query($mysqli, "SELECT * FROM tbl_barang_keluar")
@@ -140,7 +140,7 @@ else {
                 </div>
                 <div class="col col-stats ml-3 ml-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Data Jenis Barang</p>
+                    <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataJenisBarang','Data Jenis Barang') ?> </p>
                     <?php
                     // sql statement untuk menampilkan jumlah data pada tabel "tbl_jenis"
                     $query = mysqli_query($mysqli, "SELECT * FROM tbl_jenis")
@@ -168,7 +168,7 @@ else {
                 </div>
                 <div class="col col-stats ml-3 ml-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Data Satuan</p>
+                    <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataSatuan','Data Satuan') ?> </p>
                     <?php
                     // sql statement untuk menampilkan jumlah data pada tabel "tbl_satuan"
                     $query = mysqli_query($mysqli, "SELECT * FROM tbl_satuan")
@@ -196,7 +196,7 @@ else {
                 </div>
                 <div class="col col-stats ml-3 ml-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Data User</p>
+                    <p class="card-category"><?php echo transWord($_SESSION['Lang'],'dataUser','Data User') ?> </p>
                     <?php
                     // sql statement untuk menampilkan jumlah data pada tabel "tbl_user"
                     $query = mysqli_query($mysqli, "SELECT * FROM tbl_user")
@@ -221,7 +221,7 @@ else {
     <div class="card">
       <div class="card-header">
         <!-- judul tabel -->
-        <div class="card-title"><i class="fas fa-info-circle mr-2"></i> Stok barang telah mencapai batas minimum</div>
+        <div class="card-title"><i class="fas fa-info-circle mr-2"></i> <?php echo transWord($_SESSION['Lang'],'stokBarangTelahMencapaiBatasMinimum','Stok barang telah mencapai batas minimum') ?> </div>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -229,12 +229,12 @@ else {
           <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
             <thead>
               <tr>
-                <th class="text-center">No.</th>
-                <th class="text-center">ID Barang</th>
-                <th class="text-center">Nama Barang</th>
-                <th class="text-center">Jenis Barang</th>
-                <th class="text-center">Stok</th>
-                <th class="text-center">Satuan</th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?>.</th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'idBarang','ID Barang') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?> </th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></th>
               </tr>
             </thead>
             <tbody>

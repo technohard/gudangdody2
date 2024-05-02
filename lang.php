@@ -34,7 +34,7 @@ function getLang($langValue=''){
     }
 }
 
-function transWord($code='Bahasa',$word='weleome'){
+function transWord($code='Bahasa',$word='welcome',$original=''){
     $lang = array(
         'Bahasa' => [
             'welcome' => 'Selamat Datang',
@@ -102,6 +102,9 @@ function transWord($code='Bahasa',$word='weleome'){
             'jumlahPenyesuaian' => 'Jumlah Penyesuaian',
             'stok' => 'Stok',
             'totalStok' => 'Total Stok',
+            'tampilkanHalaman' => 'Tampilkan Halaman',
+            'adjustment' => 'Penyesuaian',
+            'laporanAdjustment' => 'Laporan Penyesuaian',
         ],
         'Mandarin' => [
             'welcome' => '欢迎',
@@ -169,10 +172,15 @@ function transWord($code='Bahasa',$word='weleome'){
             'jumlahPenyesuaian' => '调整数量',
             'stok' => '库存',
             'totalStok' => '总库存',
+            'tampilkanHalaman' => '显示页面',
+            'adjustment' => '调整',
+            'laporanAdjustment' => '调整报告',
 
         ],
     );
-    return $lang[$code][$word];
+
+    $translate = $lang[$code][$word];
+    return $translate;
 }
 
 ?>
