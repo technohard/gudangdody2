@@ -105,6 +105,12 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             'tampilkanHalaman' => 'Tampilkan Halaman',
             'adjustment' => 'Penyesuaian',
             'laporanAdjustment' => 'Laporan Penyesuaian',
+            "jenisBarangtidakbolehkosong" => 'Jenis barang tidak boleh kosong', 
+            "namabarangtidakbolehkosong" => 'Nama barang tidak boleh kosong',
+            "stokminimumtidakbolehkosong" => 'Stok minimum tidak boleh kosong',
+            "satuantidakbolehkosong" => 'Satuan tidak boleh kosong',
+            "entriDataJenisBarang" => 'Entri Data Jenis Barang',
+            "entriDataSatuan" => 'Entri Data Satuan',
         ],
         'Mandarin' => [
             'welcome' => '欢迎',
@@ -175,6 +181,12 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             'tampilkanHalaman' => '显示页面',
             'adjustment' => '调整',
             'laporanAdjustment' => '调整报告',
+            "jenisBarangtidakbolehkosong" => '商品类型不能为空', 
+            "namabarangtidakbolehkosong" => '商品名称不能为空',
+            "stokminimumtidakbolehkosong" => '最低库存不能为空',
+            "satuantidakbolehkosong" => ' 单位不能为空',
+            "entriDataJenisBarang" => '输入商品类型数据',
+            "entriDataSatuan" => '输入单位数据',
 
         ],
     );

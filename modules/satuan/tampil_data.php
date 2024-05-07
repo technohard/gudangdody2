@@ -79,24 +79,24 @@ else {
       <div class="d-flex align-items-left align-items-md-top flex-column flex-md-row">
         <div class="page-header text-white">
           <!-- judul halaman -->
-          <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> Satuan</h4>
+          <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> <?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></h4>
           <!-- breadcrumbs -->
           <ul class="breadcrumbs">
             <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
             <li class="separator"><i class="flaticon-right-arrow"></i></li>
-            <li class="nav-item"><a href="?module=satuan" class="text-white">Satuan</a></li>
+            <li class="nav-item"><a href="?module=satuan" class="text-white"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></a></li>
             <li class="separator"><i class="flaticon-right-arrow"></i></li>
-            <li class="nav-item"><a>Data</a></li>
+            <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'data','Data') ?> </a></li>
           </ul>
         </div>
         <div class="ml-md-auto py-2 py-md-0">
           <!-- tombol entri data -->
           <a href="?module=form_entri_satuan" class="btn btn-secondary btn-round mr-2">
-            <span class="btn-label"><i class="fa fa-plus mr-2"></i></span> Entri Data
+            <span class="btn-label"><i class="fa fa-plus mr-2"></i></span> <?php echo transWord($_SESSION['Lang'],'entriData','Entri Data') ?> 
           </a>
           <!-- tombol export data -->
           <a href="modules/satuan/export.php" class="btn btn-success btn-round">
-            <span class="btn-label"><i class="fa fa-file-excel mr-2"></i></span> Export
+            <span class="btn-label"><i class="fa fa-file-excel mr-2"></i></span> <?php echo transWord($_SESSION['Lang'],'export','Export') ?>  
           </a>
         </div>
       </div>
@@ -107,7 +107,7 @@ else {
     <div class="card">
       <div class="card-header">
         <!-- judul tabel -->
-        <div class="card-title">Data Satuan</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'dataSatuan','Data Satuan') ?> </div>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -115,9 +115,9 @@ else {
           <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
             <thead>
               <tr>
-                <th class="text-center">No.</th>
-                <th class="text-center">Satuan</th>
-                <th class="text-center">Aksi</th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'aksi','Aksi') ?> </th>
               </tr>
             </thead>
             <tbody>

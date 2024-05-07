@@ -15,30 +15,30 @@ function akumulasiSaldoAwal($tgl1,$tgl2,$id_barang,$mysqli){
   $year = substr($tgl1,0,4);
   $tgl_awalx=$year.'-'.$month.'-'.'01';
   
-  if($day!='01'){
+
 
     //total saldo masuk sebelum tgl akhir
     //hitung data masuk
-    $qrymasukx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    $qrymasukx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_masuk FROM tbl_barang_masuk a WHERE  a.tanggal < '$tgl1' AND a.barang = '$id_barang' ; ") 
     or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
     $res = ($qrymasukx) ? mysqli_fetch_assoc($qrymasukx) : 0;
     $saldo_masukx = (isset($res['saldo_masuk']))? $res['saldo_masuk'] : 0; 
 
     //hitung data keluar
-    $qrykeluarx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_keluar FROM tbl_barang_keluar a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    $qrykeluarx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_keluar FROM tbl_barang_keluar a WHERE  a.tanggal < '$tgl1' AND a.barang = '$id_barang' ; ") 
     or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
     $res = ($qrykeluarx) ? mysqli_fetch_assoc($qrykeluarx) : 0;
     $saldo_keluarx = (isset($res['saldo_keluar']))? $res['saldo_keluar'] : 0; 
 
     //hitung data penyesuaian
-    $qryadjx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_adjustment FROM tbl_adjustment a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    $qryadjx = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as saldo_adjustment FROM tbl_adjustment a WHERE  a.tanggal < '$tgl1' AND a.barang = '$id_barang' ; ") 
     or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
     $res = ($qryadjx) ? mysqli_fetch_assoc($qryadjx) : 0;
     $saldo_adjustmentx = (isset($res['saldo_adjustment']))? $res['saldo_adjustment'] : 0; 
 
     $saldo = ( $saldo_masukx - $saldo_keluarx ) + $saldo_adjustmentx;
 
-  }
+  
 
   return $saldo;
 }
@@ -53,17 +53,17 @@ function akumulasiStokOpname($tgl1,$tgl2,$id_barang,$mysqli){
   $year = substr($tgl1,0,4);
   $tgl_awalx=$year.'-'.$month.'-'.'01';
   
-  if($day!='01'){
+  
 
     //hitung data stok opname
-    $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE  a.tanggal >='$tgl_awalx'  AND  a.tanggal < '$tgl2' AND a.barang = '$id_barang' ; ") 
+    $qryso = mysqli_query($mysqli,"SELECT SUM(a.jumlah) as stock_opname FROM tbl_stok_opname a WHERE  a.tanggal < '$tgl1' AND a.barang = '$id_barang' ; ") 
     or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
     $res = ($qryso) ? mysqli_fetch_assoc($qryso) : 0;
     $stock_opnamex = (isset($res['stock_opname']))? $res['stock_opname'] : 0; 
 
     $saldo = $stock_opnamex;
 
-  }
+  
 
   return $saldo;
 
