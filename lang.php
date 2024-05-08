@@ -111,6 +111,11 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             "satuantidakbolehkosong" => 'Satuan tidak boleh kosong',
             "entriDataJenisBarang" => 'Entri Data Jenis Barang',
             "entriDataSatuan" => 'Entri Data Satuan',
+            "dokumenPabean" => 'Dokumen Pabean',
+            "entriDataBarangMasuk" => 'Entri Data Barang Masuk',
+            "namaPengirim" => 'Nama Pengirim',
+            "nomorDokumen" => 'Nomor Dokumen',
+            "tanggalDokumen" => 'Tanggal Dokumen',
         ],
         'Mandarin' => [
             'welcome' => '欢迎',
@@ -187,6 +192,11 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             "satuantidakbolehkosong" => ' 单位不能为空',
             "entriDataJenisBarang" => '输入商品类型数据',
             "entriDataSatuan" => '输入单位数据',
+            "dokumenPabean" => '海关文件',
+            "entriDataBarangMasuk" => '进口商品数据录入',
+            "namaPengirim" => '寄件人姓名',
+            "nomorDokumen" => '文件编号',
+            "tanggalDokumen" => '文件日期',
 
         ],
     );
