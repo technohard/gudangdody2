@@ -116,6 +116,12 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             "namaPengirim" => 'Nama Pengirim',
             "nomorDokumen" => 'Nomor Dokumen',
             "tanggalDokumen" => 'Tanggal Dokumen',
+            "entriDataBarangKeluar" => "Entri Data Barang Keluar",
+            "sisaStok" => "Sisa Stok",
+            "namaPenerima" => "Nama Penerima",
+            "barangAdjustment" => "Barang Adjustment",
+            "satuanBarang" => "Satuan Barang",
+
         ],
         'Mandarin' => [
             'welcome' => '欢迎',
@@ -197,6 +203,12 @@ function transWord($code='Bahasa',$word='welcome',$original=''){
             "namaPengirim" => '寄件人姓名',
             "nomorDokumen" => '文件编号',
             "tanggalDokumen" => '文件日期',
+            "entriDataBarangKeluar" => "出货数据录入",
+            "sisaStok" => "剩余库存",
+            "namaPenerima" => "收件人姓名",
+            "barangAdjustment" => "商品调整",
+            "satuanBarang" => "商品单位",
+
 
         ],
     );

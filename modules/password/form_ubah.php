@@ -93,7 +93,12 @@ else {
           </div>
         </div>
         <div class="card-action">
-          <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2">
+          
+          <!-- <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2"> -->
+          <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="Simpan">
+             <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
+           </button>
+
         </div>
       </form>
     </div>

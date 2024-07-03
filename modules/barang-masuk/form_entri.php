@@ -162,7 +162,11 @@ else { ?>
 
           <div class="card-action">
             <!-- tombol simpan data -->
-            <input type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>" class="btn btn-secondary btn-round pl-4 pr-4 mr-2">
+            <!-- <input type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>" class="btn btn-secondary btn-round pl-4 pr-4 mr-2"> -->
+            <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="Simpan">
+             <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
+           </button>
+
             <!-- tombol kembali ke halaman data barang masuk -->
             <a href="?module=barang_masuk" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a>
           </div>

@@ -14,14 +14,14 @@ else { ?>
     <div class="page-inner py-4">
       <div class="page-header text-white">
         <!-- judul halaman -->
-        <h4 class="page-title text-white"><i class="fas fa-sign-out-alt mr-2"></i> Barang Keluar</h4>
+        <h4 class="page-title text-white"><i class="fas fa-sign-out-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></h4>
         <!-- breadcrumbs -->
         <ul class="breadcrumbs">
           <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a href="?module=barang_keluar" class="text-white">Barang Keluar</a></li>
+          <li class="nav-item"><a href="?module=barang_keluar" class="text-white"><?php echo transWord($_SESSION['Lang'],'barangKeluar','Barang Keluar') ?></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Entri</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'entri','Entri') ?></a></li>
         </ul>
       </div>
     </div>
@@ -31,7 +31,7 @@ else { ?>
     <div class="card">
       <div class="card-header">
         <!-- judul form -->
-        <div class="card-title">Entri Data Barang Keluar</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'entriDataBarangKeluar','Entri Data Barang Keluar') ?></div>
       </div>
       <!-- form entri data -->
       <form action="modules/barang-keluar/proses_entri.php" method="post" class="needs-validation" novalidate>
@@ -64,7 +64,7 @@ else { ?>
                 // menambahkan karakter "TK-" diawal dan karakter "0" disebelah kiri nomor urut
                 $id_transaksi = "TK-" . str_pad($nomor_urut, 7, "0", STR_PAD_LEFT);
                 ?>
-                <label>ID Transaksi <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'idTransaksi','ID Transaksi') ?>  <span class="text-danger">*</span></label>
                 <!-- tampilkan "id_transaksi" -->
                 <input type="text" name="id_transaksi" class="form-control" value="<?php echo $id_transaksi; ?>">
               </div>
@@ -72,9 +72,9 @@ else { ?>
 
             <div class="col-md-5 ml-auto">
               <div class="form-group">
-                <label>Tanggal <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?>  <span class="text-danger">*</span></label>
                 <input type="text" name="tanggal" class="form-control date-picker" autocomplete="off" value="<?php echo date("d-m-Y"); ?>" required>
-                <div class="invalid-feedback">Tanggal tidak boleh kosong.</div>
+                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'tanggaltidakbolehkosong','Tanggal tidak boleh kosong') ?> .</div>
               </div>
             </div>
           </div>
@@ -84,9 +84,9 @@ else { ?>
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">
-                <label>Barang <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?>  <span class="text-danger">*</span></label>
                 <select id="data_barang" name="barang" class="form-control chosen-select" autocomplete="off" required>
-                  <option selected disabled value="">-- Pilih --</option>
+                  <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                   <?php
                   // sql statement untuk menampilkan data dari tabel "tbl_barang"
                   $query_barang = mysqli_query($mysqli, "SELECT id_barang, nama_barang FROM tbl_barang ORDER BY id_barang ASC")
@@ -98,11 +98,11 @@ else { ?>
                   }
                   ?>
                 </select>
-                <div class="invalid-feedback">Barang tidak boleh kosong.</div>
+                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'barangtidakbolehkosong','Barang tidak boleh kosong') ?> .</div>
               </div>
 
               <div class="form-group">
-                <label>Stok <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?>  <span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input type="text" id="data_stok" name="stok" class="form-control" readonly>
                   <div id="data_satuan" class="input-group-append"></div>
@@ -111,7 +111,7 @@ else { ?>
 
 
               <div class="form-group">
-                <label>Dokumen Pebean <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'dokumenPabean','Dokumen Pebean') ?>  <span class="text-danger">*</span></label>
                 <div class="input-group">
                   <select name="jns_dok" id="jns_dok" class="form-control">
                     <option value=""> - </option>
@@ -124,7 +124,7 @@ else { ?>
 
 
               <div class="form-group">
-                <label>Nomor Dokumen <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'nomorDokumen','Nomor Dokumen') ?>  <span class="text-danger">*</span></label>
                 <div class="input-group">
                   <input type="text" id="no_dok" name="no_dok" class="form-control">
                   <div id="data_satuan" class="input-group-append"></div>
@@ -132,7 +132,7 @@ else { ?>
               </div>
 
               <div class="form-group">
-                  <label>Tanggal Dokumen </label>
+                  <label><?php echo transWord($_SESSION['Lang'],'tanggalDokumen','Tanggal Dokumen') ?>  </label>
                   <input type="text" name="tgl_dok" class="form-control date-picker" autocomplete="off" value="<?php echo date('d-m-Y'); ?>" >
                   <!-- <div class="invalid-feedback">Tanggal tidak boleh kosong.</div> -->
                 </div>
@@ -142,24 +142,24 @@ else { ?>
 
             <div class="col-md-5 ml-auto">
               <div class="form-group">
-                <label>Jumlah Keluar <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'jumlahKeluar','Jumlah Keluar') ?>   <span class="text-danger">*</span></label>
                 <input type="text" id="jumlah" name="jumlah" class="form-control" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
-                <div class="invalid-feedback">Jumlah keluar tidak boleh kosong.</div>
+                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'jumlahkeluartidakbolehkosong','Jumlah keluar tidak boleh kosong') ?> .</div>
               </div>
 
               <div class="form-group">
-                <label>Sisa Stok <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'sisaStok','Sisa Stok') ?>  <span class="text-danger">*</span></label>
                 <input type="text" id="sisa" name="sisa" class="form-control" readonly>
               </div>
 
 
               <div class="form-group">
-                <label>Nama Pengirim<span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'namaPengirim','Nama Pengirim') ?> <span class="text-danger">*</span></label>
                 <input type="text" id="nama_pengirim" name="nama_pengirim" class="form-control">
               </div>
 
               <div class="form-group">
-                <label>Nama Penerima<span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'namaPenerima','Nama Penerima') ?> <span class="text-danger">*</span></label>
                 <input type="text" id="nama_penerima" name="nama_penerima" class="form-control">
               </div>
 
@@ -176,9 +176,12 @@ else { ?>
         </div>
         <div class="card-action">
           <!-- tombol simpan data -->
-          <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2">
+           <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="Simpan">
+             <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
+           </button>
+          <!-- <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2"> -->
           <!-- tombol kembali ke halaman data barang keluar -->
-          <a href="?module=barang_keluar" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+          <a href="?module=barang_keluar" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?> </a>
         </div>
       </form>
     </div>
