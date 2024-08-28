@@ -23,14 +23,14 @@ else {
     <div class="page-inner py-4">
       <div class="page-header text-white">
         <!-- judul halaman -->
-        <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> Satuan</h4>
+        <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> <?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </h4>
         <!-- breadcrumbs -->
         <ul class="breadcrumbs">
           <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a href="?module=satuan" class="text-white">Satuan</a></li>
+          <li class="nav-item"><a href="?module=satuan" class="text-white"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Ubah</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'ubah','Ubah') ?> </a></li>
         </ul>
       </div>
     </div>
@@ -40,7 +40,7 @@ else {
     <div class="card">
       <div class="card-header">
         <!-- judul form -->
-        <div class="card-title">Ubah Data Satuan</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'Ubah Data Satuan','Ubah Data Satuan') ?> </div>
       </div>
       <!-- form ubah data -->
       <form action="modules/satuan/proses_ubah.php" method="post" class="needs-validation" novalidate>
@@ -48,9 +48,9 @@ else {
           <input type="hidden" name="id_satuan" value="<?php echo $data['id_satuan']; ?>">
 
           <div class="form-group">
-            <label>Satuan <span class="text-danger">*</span></label>
+            <label><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?>  <span class="text-danger">*</span></label>
             <input type="text" name="nama_satuan" class="form-control col-lg-5" autocomplete="off" value="<?php echo $data['nama_satuan']; ?>" required>
-            <div class="invalid-feedback">Satuan tidak boleh kosong.</div>
+            <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'Satuan tidak boleh kosong','Satuan tidak boleh kosong') ?> .</div>
           </div>
         </div>
         <div class="card-action">
@@ -61,7 +61,7 @@ else {
            </button>
 
           <!-- tombol kembali ke halaman data satuan -->
-          <a href="?module=satuan" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+          <a href="?module=satuan" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?> </a>
         </div>
       </form>
     </div>

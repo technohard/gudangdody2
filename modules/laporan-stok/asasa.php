@@ -32,7 +32,7 @@ else { ?>
       <div class="card">
         <div class="card-header">
           <!-- judul form -->
-          <div class="card-title">Filter Data Stok</div>
+          <div class="card-title">Filter Data Stok x</div>
         </div>
         <!-- form filter data -->
         <div class="card-body">
@@ -76,7 +76,7 @@ else { ?>
       <div class="card">
         <div class="card-header">
           <!-- judul form -->
-          <div class="card-title">Filter Data Stok</div>
+          <div class="card-title">Filter Data Stok x</div>
         </div>
         <!-- form filter data -->
         <div class="card-body">

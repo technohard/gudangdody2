@@ -15,8 +15,8 @@ else {
       // tampilkan pesan sukses simpan data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data barang berhasil disimpan.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data barang berhasil disimpan','Data barang berhasil disimpan').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -27,8 +27,8 @@ else {
       // tampilkan pesan sukses ubah data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data barang berhasil diubah.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data barang berhasil diubah','Data barang berhasil diubah').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -39,8 +39,8 @@ else {
       // tampilkan pesan sukses hapus data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data barang berhasil dihapus.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data barang berhasil dihapus','Data barang berhasil dihapus').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -51,8 +51,8 @@ else {
       // tampilkan pesan gagal hapus data
       echo '<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-times"></span> 
-              <span data-notify="title" class="text-danger">Gagal!</span> 
-              <span data-notify="message">Data barang tidak bisa dihapus karena sudah tercatat pada Data Transaksi.</span>
+              <span data-notify="title" class="text-danger">'.transWord($_SESSION['Lang'],'Gagal','Gagal').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data barang tidak bisa dihapus karena sudah tercatat pada Data Transaksi','Data barang tidak bisa dihapus karena sudah tercatat pada Data Transaksi').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -135,7 +135,7 @@ else {
                         <i class="fas fa-pencil-alt fa-sm"></i>
                       </a>
                       <!-- tombol hapus data -->
-                      <a href="modules/barang/proses_hapus.php?id=<?php echo $data['id_barang']; ?>" onclick="return confirm('Anda yakin ingin menghapus data barang <?php echo $data['nama_barang']; ?>?')" class="btn btn-icon btn-round btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Hapus">
+                      <a href="modules/barang/proses_hapus.php?id=<?php echo $data['id_barang']; ?>" onclick="return confirm('<?php echo transWord($_SESSION['Lang'],'Anda yakin ingin menghapus data barang','Anda yakin ingin menghapus data barang') ?> <?php echo $data['nama_barang']; ?>?')" class="btn btn-icon btn-round btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Hapus">
                         <i class="fas fa-trash fa-sm"></i>
                       </a>
                     </div>

@@ -41,20 +41,20 @@ else {
       <div class="d-flex align-items-left align-items-md-top flex-column flex-md-row">
         <div class="page-header text-white">
           <!-- judul halaman -->
-          <h4 class="page-title text-white"><i class="fas fa-sign-in-alt mr-2"></i> Stok Opname</h4>
+          <h4 class="page-title text-white"><i class="fas fa-sign-in-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?> </h4>
           <!-- breadcrumbs -->
           <ul class="breadcrumbs">
             <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
             <li class="separator"><i class="flaticon-right-arrow"></i></li>
-            <li class="nav-item"><a href="?module=stok_opname" class="text-white">Stok Opname</a></li>
+            <li class="nav-item"><a href="?module=stok_opname" class="text-white"><?php echo transWord($_SESSION['Lang'],'stokOpname','Stok Opname') ?></a></li>
             <li class="separator"><i class="flaticon-right-arrow"></i></li>
-            <li class="nav-item"><a>Data</a></li>
+            <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'data','Data') ?></a></li>
           </ul>
         </div>
         <div class="ml-md-auto py-2 py-md-0">
           <!-- tombol entri data -->
           <a href="?module=form_entri_stok_opname" class="btn btn-secondary btn-round">
-            <span class="btn-label"><i class="fa fa-plus mr-2"></i></span> Entri Data
+            <span class="btn-label"><i class="fa fa-plus mr-2"></i></span> <?php echo transWord($_SESSION['Lang'],'entriData','Entri Data') ?>
           </a>
         </div>
       </div>
@@ -65,7 +65,7 @@ else {
     <div class="card">
       <div class="card-header">
         <!-- judul tabel -->
-        <div class="card-title">Data Stok Opname</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'dataStokOpname','Data Stok Opname') ?> </div>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -73,15 +73,15 @@ else {
           <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
             <thead>
               <tr>
-                <th class="text-center">No.</th>
-                <th class="text-center">Tanggal</th>
-                <th class="text-center">ID Transaksi</th>
-                <th class="text-center">Kategori</th>
-                <th class="text-center">Nama Barang</th>
-                <th class="text-center">Satuan</th>
-                <th class="text-center">Jumlah</th>
-                <th class="text-center">Keterangan</th>
-                <th class="text-center">Aksi</th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kategori','Kategori') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'jumlah','Jumlah') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'keterangan','Keterangan') ?></th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'aksi','Aksi') ?></th>
               </tr>
             </thead>
             <tbody>

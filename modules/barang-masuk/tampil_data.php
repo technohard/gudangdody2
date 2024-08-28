@@ -74,7 +74,7 @@ else {
             <thead>
               <tr>
                 <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
-                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'idTransaksi','ID Transaksi') ?> </th>
+                <th class="text-center"><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?> </th>
                 <th class="text-center"><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?> </th>
                 <th class="text-center"><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></th>
                 <th class="text-center"><?php echo transWord($_SESSION['Lang'],'jumlahMasuk','Jumlah Masuk') ?></th>

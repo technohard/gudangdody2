@@ -83,14 +83,14 @@ else {
     <div class="page-inner py-4">
       <div class="page-header text-white">
         <!-- judul halaman -->
-        <h4 class="page-title text-white"><i class="fas fa-file-signature mr-2"></i> Laporan Stok</h4>
+        <h4 class="page-title text-white"><i class="fas fa-file-signature mr-2"></i> <?php echo transWord($_SESSION['Lang'],'laporanStok','Laporan Stok') ?> </h4>
         <!-- breadcrumbs -->
         <ul class="breadcrumbs">
           <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Laporan</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'laporan','Laporan') ?></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Stok</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?></a></li>
         </ul>
       </div>
     </div>
@@ -104,7 +104,7 @@ else {
       <div class="card">
         <div class="card-header">
           <!-- judul form -->
-          <div class="card-title">Filter Data Stok</div>
+          <div class="card-title"><?php echo transWord($_SESSION['Lang'],'filterDataStok','Filter Data Stok') ?> </div>
         </div>
         <!-- form filter data -->
         <div class="card-body">
@@ -112,9 +112,9 @@ else {
             <div class="row">
               <div class="col-lg-5">
                 <div class="form-group">
-                  <label>Stok </label>
+                  <label><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?> </label>
                   <select name="stok" class="form-control chosen-select" autocomplete="off">
-                    <option selected disabled value="">-- Pilih --</option>
+                    <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                     <option value="">-</option>
                     <?php  
 
@@ -128,7 +128,7 @@ else {
                         <option value="<?php echo $data1['nama_barang']; ?>"><?php echo $data1['nama_barang']; ?></option>
                       <?php } ?>
 
-                    <option value="Seluruh">Seluruh</option>
+                    <option value="Seluruh"><?php echo transWord($_SESSION['Lang'],'seluruh','Seluruh') ?> </option>
                   
                   </select>
                   
@@ -137,9 +137,9 @@ else {
 
               <div class="col-lg-5">
                 <div class="form-group">
-                  <label>Jenis Barang </label>
+                  <label><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?>  </label>
                   <select name="jenis" class="form-control chosen-select" autocomplete="off" >
-                    <option disabled value="">-- Pilih --</option>
+                    <option disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                     <option value="">-</option>
                     <?php  
 
@@ -151,7 +151,7 @@ else {
                       while ($data2 = mysqli_fetch_assoc($query2)) { ?>
                         <option value="<?php echo $data2['nama_jenis']; ?>"><?php echo $data2['nama_jenis']; ?></option>
                       <?php } ?>
-                    <option value="Seluruh">Seluruh</option>
+                    <option value="Seluruh"><?php echo transWord($_SESSION['Lang'],'seluruh','Seluruh') ?> </option>
                   </select>
                   <!-- <div class="invalid-feedback">Stok tidak boleh kosong.</div> -->
                 </div>
@@ -160,7 +160,7 @@ else {
               
               <div class="col-lg-3">
                 <div class="form-group">
-                  <label>Tanggal Awal <span class="text-danger">*</span></label>
+                  <label><?php echo transWord($_SESSION['Lang'],'tanggalAwal','Tanggal Awal') ?>  <span class="text-danger">*</span></label>
                   <input type="text" name="tanggal_awal" class="form-control date-picker" autocomplete="off" required>
                   <div class="invalid-feedback">Tanggal awal tidak boleh kosong.</div>
                 </div>
@@ -168,7 +168,7 @@ else {
 
               <div class="col-lg-3">
                 <div class="form-group">
-                  <label>Tanggal Akhir <span class="text-danger">*</span></label>
+                  <label><?php echo transWord($_SESSION['Lang'],'tanggalAkhir','Tanggal Akhir') ?>  <span class="text-danger">*</span></label>
                   <input type="text" name="tanggal_akhir" class="form-control date-picker" autocomplete="off" required>
                   <div class="invalid-feedback">Tanggal akhir tidak boleh kosong.</div>
                 </div>
@@ -178,7 +178,7 @@ else {
               <div class="col-lg-3">
                 <div class="form-group pt-3">
                   <!-- tombol tampil data -->
-                  <input type="submit" name="tampil" value="Tampilkan" class="btn btn-secondary btn-round btn-block mt-4">
+                  <input type="submit" name="tampil" value="<?php echo transWord($_SESSION['Lang'],'tampilkan','Tampilkan') ?>" class="btn btn-secondary btn-round btn-block mt-4">
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@ else {
       <div class="card">
         <div class="card-header">
           <!-- judul form -->
-          <div class="card-title">Filter Data Stok</div>
+          <div class="card-title"><?php echo transWord($_SESSION['Lang'],'filterDataStok','Filter Data Stok') ?> </div>
         </div>
         <!-- form filter data -->
         <div class="card-body">
@@ -214,7 +214,7 @@ else {
                 <div class="form-group">
                   <label>Stok <span class="text-danger">*</span></label>
                   <select name="stok" class="form-control chosen-select" autocomplete="off" >
-                    <option disabled value="">-- Pilih --</option>
+                    <option disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                     <option  value="">-</option>
                     <?php  
 
@@ -232,7 +232,7 @@ else {
                         <?php } ?>
                       <?php } ?>
 
-                    <option value="Seluruh">Seluruh</option>
+                    <option value="Seluruh"><?php echo transWord($_SESSION['Lang'],'seluruh','Seluruh') ?> </option>
                   </select>
                   <div class="invalid-feedback">Stok tidak boleh kosong.</div>
                 </div>
@@ -240,9 +240,9 @@ else {
 
               <div class="col-lg-3">
                 <div class="form-group">
-                  <label>Jenis Barang </label>
+                  <label><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?>  </label>
                   <select name="jenis" class="form-control chosen-select" autocomplete="off" >
-                    <option disabled value="">-- Pilih --</option>
+                    <option disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                     <option value="">-</option>
                     <?php  
 
@@ -259,7 +259,7 @@ else {
                         <?php } ?>
                         
                       <?php } ?>
-                    <option value="Seluruh">Seluruh</option>
+                    <option value="Seluruh"><?php echo transWord($_SESSION['Lang'],'seluruh','Seluruh') ?></option>
                   </select>
                   <!-- <div class="invalid-feedback">Stok tidak boleh kosong.</div> -->
                 </div>
@@ -267,7 +267,7 @@ else {
               
               <div class="col-lg-3">
                 <div class="form-group">
-                  <label>Tanggal Awal <span class="text-danger">*</span></label>
+                  <label><?php echo transWord($_SESSION['Lang'],'tanggalAwal','Tanggal Awal') ?>  <span class="text-danger">*</span></label>
                   <input type="text" name="tanggal_awal" class="form-control date-picker" autocomplete="off" required>
                   <div class="invalid-feedback">Tanggal awal tidak boleh kosong.</div>
                 </div>
@@ -275,7 +275,7 @@ else {
 
               <div class="col-lg-3">
                 <div class="form-group">
-                  <label>Tanggal Akhir <span class="text-danger">*</span></label>
+                  <label><?php echo transWord($_SESSION['Lang'],'tanggalAkhir','Tanggal Akhir') ?>  <span class="text-danger">*</span></label>
                   <input type="text" name="tanggal_akhir" class="form-control date-picker" autocomplete="off" required>
                   <div class="invalid-feedback">Tanggal akhir tidak boleh kosong.</div>
                 </div>
@@ -285,7 +285,7 @@ else {
               <div class="col-lg-3">
                 <div class="form-group pt-3">
                   <!-- tombol tampil data -->
-                  <input type="submit" name="tampil" value="Tampilkan" class="btn btn-secondary btn-round btn-block mt-4">
+                  <input type="submit" name="tampil" value="<?php echo transWord($_SESSION['Lang'],'tampilkan','Tampilkan') ?>" class="btn btn-secondary btn-round btn-block mt-4">
                 </div>
               </div>
 
@@ -293,7 +293,7 @@ else {
                 <div class="form-group pt-3">
                   <!-- tombol cetak laporan -->
                   <a href="modules/laporan-stok/cetak.php?stok=<?php echo $stok; ?>&tanggal_awal=<?php echo $tanggal_awal ?>&tanggal_akhir=<?php echo $tanggal_akhir ?>&jenis=<?php echo $jenis ?>" target="_blank" class="btn btn-warning btn-round btn-block mt-4">
-                    <span class="btn-label"><i class="fa fa-print mr-2"></i></span> Cetak
+                    <span class="btn-label"><i class="fa fa-print mr-2"></i></span> <?php echo transWord($_SESSION['Lang'],'cetak','Cetak') ?> 
                   </a>
                 </div>
               </div>
@@ -302,7 +302,7 @@ else {
                 <div class="form-group pt-3">
                   <!-- tombol export laporan -->
                   <a href="modules/laporan-stok/export.php?stok=<?php echo $stok; ?>" target="_blank" class="btn btn-success btn-round btn-block mt-4">
-                    <span class="btn-label"><i class="fa fa-file-excel mr-2"></i></span> Export
+                    <span class="btn-label"><i class="fa fa-file-excel mr-2"></i></span> <?php echo transWord($_SESSION['Lang'],'export','Export') ?> 
                   </a>
                 </div>
               </div>
@@ -319,7 +319,7 @@ else {
           <!-- tampilkan laporan stok seluruh barang -->
           <div class="card-header">
             <!-- judul tabel -->
-            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> Laporan Stok Seluruh Barang</div>
+            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'laporanStokSeluruhBarang','Laporan Stok Seluruh Barang') ?> </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -327,18 +327,18 @@ else {
               <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th class="text-center">No.</th>
-                    <th class="text-center">Kode Barang</th>
-                    <th class="text-center">Ketegori Barang</th>
-                    <th class="text-center">Nama Barang</th>
-                    <th class="text-center">Satuan</th>
-                    <th class="text-center">Saldo Awal</th>
-                    <th class="text-center">Pemasukan</th>
-                    <th class="text-center">Pengeluaran</th>
-                    <th class="text-center">Penyesuaian</th>
-                    <th class="text-center">Saldo Barang</th>
-                    <th class="text-center">Stock Opname</th>
-                    <th class="text-center">Selisih</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kodeBarang','Kode Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kategoriBarang','Ketegori Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoAwal','Saldo Awal') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pemasukan','Pemasukan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pengeluaran','Pengeluaran') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'penyesuaian','Penyesuaian') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoBarang','Saldo Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'stockOpname','Stock Opname') ?></th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'selisih','Selisih') ?> </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -442,7 +442,7 @@ else {
           <!-- tampilkan laporan stok seluruh barang -->
           <div class="card-header">
             <!-- judul tabel -->
-            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> Laporan Stok Seluruh Jenis Barang</div>
+            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'laporanStokSeluruhJenisBarang','Laporan Stok Seluruh Jenis Barang') ?> </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -450,18 +450,19 @@ else {
               <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th class="text-center">No.</th>
-                    <th class="text-center">Kode Barang</th>
-                    <th class="text-center">Ketegori Barang</th>
-                    <th class="text-center">Nama Barang</th>
-                    <th class="text-center">Satuan</th>
-                    <th class="text-center">Saldo Awal</th>
-                    <th class="text-center">Pemasukan</th>
-                    <th class="text-center">Pengeluaran</th>
-                    <th class="text-center">Penyesuaian</th>
-                    <th class="text-center">Saldo Barang</th>
-                    <th class="text-center">Stock Opname</th>
-                    <th class="text-center">Selisih</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kodeBarang','Kode Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kategoriBarang','Ketegori Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoAwal','Saldo Awal') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pemasukan','Pemasukan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pengeluaran','Pengeluaran') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'penyesuaian','Penyesuaian') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoBarang','Saldo Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'stockOpname','Stock Opname') ?></th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'selisih','Selisih') ?> </th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -563,7 +564,7 @@ else {
         <!-- tampilkan laporan stok seluruh barang -->
         <div class="card-header">
             <!-- judul tabel -->
-            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> Laporan Stok Barang <?php echo ucwords($stok)  ?> </div>
+            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'laporanStokBarang','Laporan Stok Barang') ?>  <?php echo ucwords($stok)  ?> </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -571,18 +572,20 @@ else {
               <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th class="text-center">No.</th>
-                    <th class="text-center">Kode Barang</th>
-                    <th class="text-center">Ketegori Barang</th>
-                    <th class="text-center">Nama Barang</th>
-                    <th class="text-center">Satuan</th>
-                    <th class="text-center">Saldo Awal</th>
-                    <th class="text-center">Pemasukan</th>
-                    <th class="text-center">Pengeluaran</th>
-                    <th class="text-center">Penyesuaian</th>
-                    <th class="text-center">Saldo Barang</th>
-                    <th class="text-center">Stock Opname</th>
-                    <th class="text-center">Selisih</th>
+
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kodeBarang','Kode Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kategoriBarang','Ketegori Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoAwal','Saldo Awal') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pemasukan','Pemasukan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pengeluaran','Pengeluaran') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'penyesuaian','Penyesuaian') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoBarang','Saldo Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'stockOpname','Stock Opname') ?></th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'selisih','Selisih') ?> </th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -682,7 +685,7 @@ else {
           <!-- tampilkan laporan stok seluruh barang -->
         <div class="card-header">
             <!-- judul tabel -->
-            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> Laporan Stok Jenis Barang <?php echo ucwords($jenis)  ?> </div>
+            <div class="card-title"><i class="fas fa-file-alt mr-2"></i> <?php echo transWord($_SESSION['Lang'],'laporanStokJenisBarang','Laporan Stok Jenis Barang') ?>  <?php echo ucwords($jenis)  ?> </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -690,18 +693,21 @@ else {
               <table id="basic-datatables" class="display table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th class="text-center">No.</th>
-                    <th class="text-center">Kode Barang</th>
-                    <th class="text-center">Ketegori Barang</th>
-                    <th class="text-center">Nama Barang</th>
-                    <th class="text-center">Satuan</th>
-                    <th class="text-center">Saldo Awal</th>
-                    <th class="text-center">Pemasukan</th>
-                    <th class="text-center">Pengeluaran</th>
-                    <th class="text-center">Penyesuaian</th>
-                    <th class="text-center">Saldo Barang</th>
-                    <th class="text-center">Stock Opname</th>
-                    <th class="text-center">Selisih</th>
+
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'no','No') ?> .</th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kodeBarang','Kode Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'kategoriBarang','Ketegori Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'namaBarang','Nama Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoAwal','Saldo Awal') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pemasukan','Pemasukan') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'pengeluaran','Pengeluaran') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'penyesuaian','Penyesuaian') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'saldoBarang','Saldo Barang') ?> </th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'stockOpname','Stock Opname') ?></th>
+                    <th class="text-center"><?php echo transWord($_SESSION['Lang'],'selisih','Selisih') ?> </th>
+
+                    
                   </tr>
                 </thead>
                 <tbody>

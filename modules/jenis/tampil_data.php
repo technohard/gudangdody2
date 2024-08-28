@@ -15,8 +15,8 @@ else {
       // tampilkan pesan sukses simpan data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data jenis barang berhasil disimpan.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data jenis barang berhasil disimpan','Data jenis barang berhasil disimpan').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -27,20 +27,20 @@ else {
       // tampilkan pesan sukses ubah data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data jenis barang berhasil diubah.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data jenis barang berhasil diubah','Data jenis barang berhasil diubah').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>';
     }
-    // jika pesan = 3
+    // jika pesan = 3 
     elseif ($_GET['pesan'] == 3) {
       // tampilkan pesan sukses hapus data
       echo '<div class="alert alert-notify alert-success alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-check"></span> 
-              <span data-notify="title" class="text-success">Sukses!</span> 
-              <span data-notify="message">Data jenis barang berhasil dihapus.</span>
+              <span data-notify="title" class="text-success">'.transWord($_SESSION['Lang'],'Sukses','Sukses').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data jenis barang berhasil dihapus','Data jenis barang berhasil dihapus').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -53,8 +53,8 @@ else {
       // tampilkan pesan gagal simpan data
       echo '<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-times"></span> 
-              <span data-notify="title" class="text-danger">Gagal!</span> 
-              <span data-notify="message">Jenis barang <strong>' . $jenis . '</strong> sudah ada. Silahkan ganti nama jenis barang yang Anda masukan.</span>
+              <span data-notify="title" class="text-danger">'.transWord($_SESSION['Lang'],'Gagal','Gagal').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang').' <strong>' . $jenis . '</strong> '.transWord($_SESSION['Lang'],'sudah ada. Silahkan ganti nama jenis barang yang Anda masukan','sudah ada. Silahkan ganti nama jenis barang yang Anda masukan').' .</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -65,8 +65,8 @@ else {
       // tampilkan pesan gagal hapus data
       echo '<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert">
               <span data-notify="icon" class="fas fa-times"></span> 
-              <span data-notify="title" class="text-danger">Gagal!</span> 
-              <span data-notify="message">Data jenis barang tidak bisa dihapus karena sudah tercatat pada Data Barang.</span>
+              <span data-notify="title" class="text-danger">'.transWord($_SESSION['Lang'],'Gagal','Gagal').'!</span> 
+              <span data-notify="message">'.transWord($_SESSION['Lang'],'Data jenis barang tidak bisa dihapus karena sudah tercatat pada Data Barang','Data jenis barang tidak bisa dihapus karena sudah tercatat pada Data Barang').'.</span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

@@ -67,6 +67,10 @@ else {
     // panggil file form ubah satuan
     include "modules/satuan/form_ubah.php";
   }
+  elseif ($_GET['module'] == 'saldo_awal_final' && $_SESSION['hak_akses'] != 'Kepala Gudang') {
+    // panggil file tampil data saldo_awal
+    include "modules/saldo-awal-final/form_proses.php";
+  }
   // jika module yang dipilih "barang_masuk" dan hak akses bukan "Kepala Gudang"
   elseif ($_GET['module'] == 'barang_masuk' && $_SESSION['hak_akses'] != 'Kepala Gudang') {
     // panggil file tampil data barang masuk
@@ -129,6 +133,12 @@ else {
     // panggil file tampil data laporan barang keluar
     include "modules/laporan-barang-keluar/tampil_data.php";
   }
+
+  elseif ($_GET['module'] == 'laporan_status_api') {
+    // panggil file tampil data laporan barang keluar
+    include "modules/laporan-status-api/tampil_data.php";
+  }
+
   // jika module yang dipilih "user" dan hak akses "Administrator"
   elseif ($_GET['module'] == 'user' && $_SESSION['hak_akses'] == 'Administrator') {
     // panggil file tampil data user
@@ -144,6 +154,23 @@ else {
     // panggil file form ubah user
     include "modules/user/form_ubah.php";
   }
+
+  // jika module yang dipilih "form_ubah_user" dan hak akses "Administrator"
+  elseif ($_GET['module'] == 'form_ubah_profil' && $_SESSION['hak_akses'] == 'Administrator') {
+    // panggil file form ubah user
+    include "modules/profil/form_ubah.php";
+  }
+
+  elseif ($_GET['module'] == 'cleansing' && $_SESSION['hak_akses'] == 'Administrator') {
+    // panggil file form ubah user
+    include "modules/cleansing/form_proses.php";
+  }
+
+  elseif ($_GET['module'] == 'dokumen_barang' && $_SESSION['hak_akses'] == 'Administrator') {
+    // panggil file form ubah user
+    include "modules/dokumen-barang/form_proses.php";
+  }
+  
   // jika module yang dipilih "form_ubah_password"
   elseif ($_GET['module'] == 'form_ubah_password') {
     // panggil file form ubah password

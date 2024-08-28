@@ -14,14 +14,14 @@ else { ?>
     <div class="page-inner py-4">
       <div class="page-header text-white">
         <!-- judul halaman -->
-        <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> Barang</h4>
+        <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> <?php echo transWord($_SESSION['Lang'],'barang','Barang') ?> </h4>
         <!-- breadcrumbs -->
         <ul class="breadcrumbs">
           <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a href="?module=barang" class="text-white">Barang</a></li>
+          <li class="nav-item"><a href="?module=barang" class="text-white"><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Entri</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'entri','Entri') ?> </a></li>
         </ul>
       </div>
     </div>
@@ -31,7 +31,7 @@ else { ?>
     <div class="card">
       <div class="card-header">
         <!-- judul form -->
-        <div class="card-title">Entri Data Barang</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'entriDataBarang','Entri Data Barang') ?></div>
       </div>
       <!-- form entri data -->
       <form action="modules/barang/proses_entri.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -115,7 +115,7 @@ else { ?>
               </div>
 
               <div class="form-group">
-                <label>Satuan <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?>  <span class="text-danger">*</span></label>
                 <select name="satuan" class="form-control chosen-select" autocomplete="off" required>
                   <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?>  --</option>
                   <?php
@@ -193,7 +193,7 @@ else { ?>
         // Jika tipe file yang diunggah tidak sesuai dengan "allowedExtensions"
         if (!allowedExtensions.exec(filePath)) {
           // tampilkan pesan peringatan tipe file tidak sesuai
-          $('#pesan').html('<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert"><span data-notify="icon" class="fas fa-times"></span><span data-notify="title" class="text-danger">Gagal!</span> <span data-notify="message">Tipe file tidak sesuai. Harap unggah file yang memiliki tipe *.jpg atau *.png.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+          $('#pesan').html('<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert"><span data-notify="icon" class="fas fa-times"></span><span data-notify="title" class="text-danger">Gagal!</span> <span data-notify="message"><?php echo transWord($_SESSION['Lang'],'Tipe file tidak sesuai. Harap unggah file yang memiliki tipe *.jpg atau *.png','Tipe file tidak sesuai. Harap unggah file yang memiliki tipe *.jpg atau *.png') ?>.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
           // reset input file
           $('#foto').val('');
           // tampilkan file default
@@ -204,7 +204,7 @@ else { ?>
         // jika ukuran file yang diunggah lebih dari 1 Mb
         else if (fileSize > 1000000) {
           // tampilkan pesan peringatan ukuran file tidak sesuai
-          $('#pesan').html('<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert"><span data-notify="icon" class="fas fa-times"></span><span data-notify="title" class="text-danger">Gagal!</span> <span data-notify="message">Ukuran file lebih dari 1 Mb. Harap unggah file yang memiliki ukuran maksimal 1 Mb.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+          $('#pesan').html('<div class="alert alert-notify alert-danger alert-dismissible fade show" role="alert"><span data-notify="icon" class="fas fa-times"></span><span data-notify="title" class="text-danger">Gagal!</span> <span data-notify="message"><?php echo transWord($_SESSION['Lang'],'Ukuran file lebih dari 1 Mb. Harap unggah file yang memiliki ukuran maksimal 1 Mb','Ukuran file lebih dari 1 Mb. Harap unggah file yang memiliki ukuran maksimal 1 Mb') ?>.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
           // reset input file
           $('#foto').val('');
           // tampilkan file default

@@ -10,6 +10,10 @@ else {
   require_once "./lang.php";
   // pengecekan hak akses untuk menampilkan menu sesuai dengan hak akses
   // jika hak akses = Administrator, tampilkan menu
+
+  
+
+
   if ($_SESSION['hak_akses'] == 'Administrator') {
     // pengecekan menu aktif
     // jika menu dashboard dipilih, menu dashboard aktif
@@ -17,7 +21,7 @@ else {
       <li class="nav-item active">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?> </p>
         </a>
       </li>
     <?php
@@ -27,7 +31,7 @@ else {
       <li class="nav-item">
         <a href="?module=dashboard">
           <i class="fas fa-home"></i>
-          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?></p>
+          <p><?php echo transWord($_SESSION['Lang'],'dashboard','Dashboard') ?> </p>
         </a>
       </li>
     <?php
@@ -64,6 +68,11 @@ else {
             <li>
               <a href="?module=satuan">
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?> </span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?> </span>
               </a>
             </li>
           </ul>
@@ -104,6 +113,11 @@ else {
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -142,11 +156,61 @@ else {
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+              <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
     <?php
     }
+
+    // jika menu satuan (tampil data / form entri / form ubah) dipilih, menu satuan aktif
+    elseif ($_GET['module'] == 'saldo_awal_final' ) { ?>
+      <li class="nav-section">
+        <span class="sidebar-mini-icon">
+          <i class="fa fa-ellipsis-h"></i>
+        </span>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
+      </li>
+
+      <li class="nav-item active submenu">
+        <a data-toggle="collapse" href="#barang">
+          <i class="fas fa-clone"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
+          <span class="caret"></span>
+        </a>
+
+        <div class="collapse show" id="barang">
+          <ul class="nav nav-collapse">
+            <li>
+              <a href="?module=barang">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=jenis">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
+              </a>
+            </li>
+            <li >
+              <a href="?module=satuan">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="?module=saldo_awal_final">
+              <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    <?php
+    }
+    
     // jika tidak dipilih, menu barang tidak aktif
     else { ?>
       <li class="nav-section">
@@ -178,6 +242,11 @@ else {
             <li>
               <a href="?module=satuan">
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
               </a>
             </li>
           </ul>
@@ -242,7 +311,7 @@ else {
     <?php
     }
 
-    if ($_GET['module'] == 'laporan_adjustmen' ) { ?>
+    if ($_GET['module'] == 'laporan_adjustmen'  || $_GET['module'] == 'form_entri_adjustment'  ) { ?>
 
       <li class="nav-item active">
         <a href="?module=laporan_adjustmen">
@@ -266,7 +335,7 @@ else {
       <?php
     }
 
-    if ($_GET['module'] == 'stok_opname' ) { ?>
+    if ($_GET['module'] == 'stok_opname' || $_GET['module'] == 'form_entri_stok_opname' ) { ?>
 
       <li class="nav-item active">
         <a href="?module=stok_opname">
@@ -371,14 +440,69 @@ else {
     <?php
     }
 
-    // jika menu manajemen user (tampil data / form entri / form ubah) dipilih, menu manajemen user aktif
-    if ($_GET['module'] == 'user' || $_GET['module'] == 'form_entri_user' || $_GET['module'] == 'form_ubah_user') { ?>
+     // jika menu laporan barang keluar dipilih, menu laporan barang keluar aktif
+     if ($_GET['module'] == 'laporan_status_api') { ?>
+      <li class="nav-item active">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+    <?php
+    }
+    // jika tidak dipilih, menu laporan Status Api tidak aktif
+    else { ?>
+      <li class="nav-item">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+
+      <?php
+    }
+
+     // jika menu manajemen user (tampil data / form entri / form ubah) dipilih, menu manajemen user aktif
+     if ($_GET['module'] == 'profil' || $_GET['module'] == 'form_ubah_profil' ) { ?>
       <li class="nav-section">
         <span class="sidebar-mini-icon">
           <i class="fa fa-ellipsis-h"></i>
         </span>
         <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'pengaturan','Pengaturan') ?></h4>
       </li>
+
+      <li class="nav-item active">
+        <a href="?module=form_ubah_profil">
+        <i class="fa fa-address-card"></i>
+        <p><?php echo transWord($_SESSION['Lang'],'profilUsaha','Profil Usaha') ?></p>
+        </a>
+      </li>
+
+    <?php
+    }
+
+    // jika tidak dipilih, menu manajemen user tidak aktif
+    else { ?>
+      <li class="nav-section">
+        <span class="sidebar-mini-icon">
+          <i class="fa fa-ellipsis-h"></i>
+        </span>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'pengaturan','Pengaturan') ?></h4>
+      </li>
+
+      <li class="nav-item">
+        <a href="?module=form_ubah_profil">
+          <i class="fa fa-address-card"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'profilUsaha','Profil Usaha') ?></p>
+        </a>
+      </li>
+
+      <?php
+    }
+
+    // jika menu manajemen user (tampil data / form entri / form ubah) dipilih, menu manajemen user aktif
+    if ($_GET['module'] == 'user' || $_GET['module'] == 'form_entri_user' || $_GET['module'] == 'form_ubah_user') { ?>
+      
 
       <li class="nav-item active">
         <a href="?module=user">
@@ -390,12 +514,7 @@ else {
     }
     // jika tidak dipilih, menu manajemen user tidak aktif
     else { ?>
-      <li class="nav-section">
-        <span class="sidebar-mini-icon">
-          <i class="fa fa-ellipsis-h"></i>
-        </span>
-        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'pengaturan','Pengaturan') ?></h4>
-      </li>
+      
 
       <li class="nav-item">
         <a href="?module=user">
@@ -405,6 +524,57 @@ else {
       </li>
     <?php
     }
+
+    if ($_GET['module'] == 'cleansing') { ?>
+      
+
+      <li class="nav-item active">
+        <a href="?module=cleansing">
+          <i class="fa fa-trash"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'cleansingDataPercobaan','Cleansing Data Percobaan') ?></p>
+        </a>
+      </li>
+
+    <?php
+    }
+    // jika tidak dipilih, menu manajemen user tidak aktif
+    else { ?>
+      
+
+      <li class="nav-item">
+        <a href="?module=cleansing">
+          <i class="fa fa-trash"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'cleansingDataPercobaan','Cleansing Data Percobaan') ?></p>
+        </a>
+      </li>
+    <?php
+    }
+
+    if ($_GET['module'] == 'dokumen_barang') { ?>
+      
+
+      <li class="nav-item active">
+        <a href="?module=dokumen_barang">
+          <i class="fa fa-file-invoice"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'dokumenBarang','Dokumen Barang') ?></p>
+        </a>
+      </li>
+
+    <?php
+    }
+    // jika tidak dipilih, menu manajemen user tidak aktif
+    else { ?>
+      
+
+      <li class="nav-item">
+        <a href="?module=dokumen_barang">
+          <i class="fa fa-file-invoice"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'dokumenBarang','Dokumen Barang') ?></p>
+        </a>
+      </li>
+    <?php
+    }
+
   }
 
 
@@ -466,6 +636,11 @@ else {
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -502,6 +677,11 @@ else {
             <li>
               <a href="?module=satuan">
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
               </a>
             </li>
           </ul>
@@ -542,12 +722,64 @@ else {
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
+
     <?php
     }
-    // jika tidak dipilih, menu barang tidak aktif
+
+    // jika menu satuan (tampil data / form entri / form ubah) dipilih, menu satuan aktif
+    elseif ($_GET['module'] == 'saldo_awal_final') { ?>
+      <li class="nav-section">
+        <span class="sidebar-mini-icon">
+          <i class="fa fa-ellipsis-h"></i>
+        </span>
+        <h4 class="text-section"><?php echo transWord($_SESSION['Lang'],'master','Master') ?></h4>
+      </li>
+
+      <li class="nav-item active submenu">
+        <a data-toggle="collapse" href="#barang">
+          <i class="fas fa-clone"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?></p>
+          <span class="caret"></span>
+        </a>
+
+        <div class="collapse show" id="barang">
+          <ul class="nav nav-collapse">
+            <li>
+              <a href="?module=barang">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'dataBarang','Data Barang') ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=jenis">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'jenisBarang','Jenis Barang') ?></span>
+              </a>
+            </li>
+            <li>
+              <a href="?module=satuan">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+
+      <?php
+    }
+      // jika tidak dipilih, menu barang tidak aktif
     else { ?>
       <li class="nav-section">
         <span class="sidebar-mini-icon">
@@ -580,12 +812,18 @@ else {
                 <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'satuan','Satuan') ?></span>
               </a>
             </li>
+            <li>
+              <a href="?module=saldo_awal_final">
+                <span class="sub-item"><?php echo transWord($_SESSION['Lang'],'saldoAwalFinal','Saldo Awal Final') ?></span>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
+      
     <?php
     }
-
+   
     // jika menu barang masuk (tampil data / form entri) dipilih, menu barang masuk aktif
     if ($_GET['module'] == 'barang_masuk' || $_GET['module'] == 'form_entri_barang_masuk') { ?>
       <li class="nav-section">
@@ -642,7 +880,7 @@ else {
       <?php
     }
 
-    if ($_GET['module'] == 'laporan_adjustmen' ) { ?>
+    if ($_GET['module'] == 'laporan_adjustmen' || $_GET['module'] == 'form_entri_adjustment' ) { ?>
 
       <li class="nav-item active">
         <a href="?module=laporan_adjustmen">
@@ -666,7 +904,7 @@ else {
       <?php
     }
 
-    if ($_GET['module'] == 'stok_opname' ) { ?>
+    if ($_GET['module'] == 'stok_opname' || $_GET['module'] == 'form_entri_stok_opname' ) { ?>
 
       <li class="nav-item active">
         <a href="?module=stok_opname">
@@ -768,6 +1006,29 @@ else {
       </li>
     <?php
     }
+
+    // jika menu laporan barang keluar dipilih, menu laporan barang keluar aktif
+    if ($_GET['module'] == 'laporan_status_api') { ?>
+      <li class="nav-item active">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+    <?php
+    }
+    // jika tidak dipilih, menu laporan Status Api tidak aktif
+    else { ?>
+      <li class="nav-item">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+
+      <?php
+    }
+
   }
 
 
@@ -887,6 +1148,29 @@ else {
       </li>
 <?php
     }
+
+    // jika menu laporan barang keluar dipilih, menu laporan barang keluar aktif
+    if ($_GET['module'] == 'laporan_status_api') { ?>
+      <li class="nav-item active">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+    <?php
+    }
+    // jika tidak dipilih, menu laporan Status Api tidak aktif
+    else { ?>
+      <li class="nav-item">
+        <a href="?module=laporan_status_api">
+          <i class="fa fa-file-medical-alt"></i>
+          <p><?php echo transWord($_SESSION['Lang'],'laporanStatusApi','Laporan Status Api') ?></p>
+        </a>
+      </li>
+
+      <?php
+    }
+
   }
 }
 ?>

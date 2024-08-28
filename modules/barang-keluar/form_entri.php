@@ -64,7 +64,7 @@ else { ?>
                 // menambahkan karakter "TK-" diawal dan karakter "0" disebelah kiri nomor urut
                 $id_transaksi = "TK-" . str_pad($nomor_urut, 7, "0", STR_PAD_LEFT);
                 ?>
-                <label><?php echo transWord($_SESSION['Lang'],'idTransaksi','ID Transaksi') ?>  <span class="text-danger">*</span></label>
+                <label><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?>  <span class="text-danger">*</span></label>
                 <!-- tampilkan "id_transaksi" -->
                 <input type="text" name="id_transaksi" class="form-control" value="<?php echo $id_transaksi; ?>">
               </div>

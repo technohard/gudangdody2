@@ -14,14 +14,14 @@ else { ?>
         <div class="page-inner py-4">
             <div class="page-header text-white">
                 <!-- judul halaman -->
-                <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> Barang Adjustment</h4>
+                <h4 class="page-title text-white"><i class="fas fa-clone mr-2"></i> <?php echo transWord($_SESSION['Lang'],'barangAdjustment','Barang Adjustment') ?></h4>
                 <!-- breadcrumbs -->
                 <ul class="breadcrumbs">
                     <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
                     <li class="separator"><i class="flaticon-right-arrow"></i></li>
-                    <li class="nav-item"><a href="?module=barang" class="text-white">Barang Adjustment</a></li>
+                    <li class="nav-item"><a href="?module=barang" class="text-white"><?php echo transWord($_SESSION['Lang'],'barangAdjustment','Barang Adjustment') ?></a></li>
                     <li class="separator"><i class="flaticon-right-arrow"></i></li>
-                    <li class="nav-item"><a>Entri</a></li>
+                    <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'entri','Entri') ?></a></li>
                 </ul>
             </div>
         </div>
@@ -31,7 +31,7 @@ else { ?>
         <div class="card">
             <div class="card-header">
                 <!-- judul form -->
-                <div class="card-title">Entri Data Barang Adjustment</div>
+                <div class="card-title"><?php echo transWord($_SESSION['Lang'],'entriDataBarangAdjustment','Entri Data Barang Adjustment') ?></div>
             </div>
             <!-- form entri data -->
             <form action="modules/laporan_adjustmen/proses_entri.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -63,7 +63,7 @@ else { ?>
                                 // menambahkan karakter "TM-" diawal dan karakter "0" disebelah kiri nomor urut
                                 $id_transaksi = 'TA-' . str_pad($nomor_urut, 7, '0', STR_PAD_LEFT);
                                 ?>
-                                <label>ID Transaksi <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?> <span class="text-danger">*</span></label>
                                 <!-- tampilkan "id_transaksi" -->
                                 <input type="text" name="id_transaksi" class="form-control" value="<?php echo $id_transaksi; ?>">
                             </div>
@@ -71,7 +71,7 @@ else { ?>
 
                         <div class="col-md-5 ml-auto">
                             <div class="form-group">
-                                <label>Tanggal <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?>  <span class="text-danger">*</span></label>
                                 <input type="text" name="tanggal" class="form-control date-picker" autocomplete="off" value="<?php echo date('d-m-Y'); ?>" required>
                                 <div class="invalid-feedback">Tanggal tidak boleh kosong.</div>
                             </div>
@@ -83,9 +83,9 @@ else { ?>
                     <div class="row">
                         <div class="col-md-7">
                             <div class="form-group">
-                                <label>Barang <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?>  <span class="text-danger">*</span></label>
                                 <select id="data_barang" name="barang" class="form-control chosen-select" autocomplete="off" required>
-                                    <option selected disabled value="">-- Pilih --</option>
+                                    <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                                     <?php
                                     // sql statement untuk menampilkan data dari tabel "tbl_barang"
                                     ($query_barang = mysqli_query($mysqli, 'SELECT id_barang, nama_barang FROM tbl_barang ORDER BY id_barang ASC')) or die('Ada kesalahan pada query tampil data : ' . mysqli_error($mysqli));
@@ -100,7 +100,7 @@ else { ?>
                             </div>
 
                             <div class="form-group">
-                                <label>Stok <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?>  <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="text" id="data_stok" name="stok" class="form-control" readonly>
                                     <div id="data_satuan" class="input-group-append"></div>
@@ -108,7 +108,7 @@ else { ?>
                             </div>
 
                             <div class="form-group">
-                                <label>Keterangan <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'keterangan','Keterangan') ?>  <span class="text-danger">*</span></label>
                                 <input type="text" id="keterangan" name="keterangan" class="form-control" required>
                             </div>
 
@@ -121,13 +121,13 @@ else { ?>
 
                         <div class="col-md-5 ml-auto mb-3">
                             <div class="form-group">
-                                <label>Jumlah Penyesuaian (+/-)<span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'jumlahPenyesuaian','Jumlah Penyesuaian') ?>  (+/-)<span class="text-danger">*</span></label>
                                 <input type="number" id="jumlah" name="jumlah" class="form-control" autocomplete="off" required>
                                 <div class="invalid-feedback">Jumlah penyesuaian tidak boleh kosong.</div>
                             </div>
 
                             <div class="form-group">
-                                <label>Total Stok <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'totalStok','Total Stok') ?>  <span class="text-danger">*</span></label>
                                 <input type="text" id="total" name="total" class="form-control" readonly>
                             </div>
 
@@ -140,11 +140,11 @@ else { ?>
                     <div class="card-action">
                         <!-- tombol simpan data -->
                         <!-- <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2"> -->
-                        <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="Simpan">
+                        <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>">
                             <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
                         </button>
                         <!-- tombol kembali ke halaman data barang masuk -->
-                        <a href="?module=laporan_adjustmen" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+                        <a href="?module=laporan_adjustmen" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?> </a>
                     </div>
 
                 </div>
