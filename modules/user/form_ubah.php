@@ -23,14 +23,14 @@ else {
     <div class="page-inner py-4">
       <div class="page-header text-white">
         <!-- judul halaman -->
-        <h4 class="page-title text-white"><i class="fas fa-user mr-2"></i> Manajemen User</h4>
+        <h4 class="page-title text-white"><i class="fas fa-user mr-2"></i> <?php echo transWord($_SESSION['Lang'],'manajemenUser','Manajemen User') ?> </h4>
         <!-- breadcrumbs -->
         <ul class="breadcrumbs">
           <li class="nav-home"><a href="?module=dashboard"><i class="flaticon-home text-white"></i></a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a href="?module=user" class="text-white">User</a></li>
+          <li class="nav-item"><a href="?module=user" class="text-white"><?php echo transWord($_SESSION['Lang'],'user','User') ?> </a></li>
           <li class="separator"><i class="flaticon-right-arrow"></i></li>
-          <li class="nav-item"><a>Ubah</a></li>
+          <li class="nav-item"><a><?php echo transWord($_SESSION['Lang'],'ubah','Ubah') ?> </a></li>
         </ul>
       </div>
     </div>
@@ -40,7 +40,7 @@ else {
     <div class="card">
       <div class="card-header">
         <!-- judul form -->
-        <div class="card-title">Ubah Data User</div>
+        <div class="card-title"><?php echo transWord($_SESSION['Lang'],'Ubah Data User','Ubah Data User') ?> </div>
       </div>
       <!-- form ubah data -->
       <form action="modules/user/proses_ubah.php" method="post" class="needs-validation" novalidate>
@@ -48,33 +48,34 @@ else {
           <input type="hidden" name="id_user" value="<?php echo $data['id_user']; ?>">
 
           <div class="form-group col-lg-5">
-            <label>Nama User <span class="text-danger">*</span></label>
+          <label><?php echo transWord($_SESSION['Lang'],'namaUser','Nama User') ?>  <span class="text-danger">*</span></label>
             <input type="text" name="nama_user" class="form-control" autocomplete="off" value="<?php echo $data['nama_user']; ?>" required>
             <div class="invalid-feedback">Nama user tidak boleh kosong.</div>
           </div>
 
           <div class="form-group col-lg-5">
-            <label>Username <span class="text-danger">*</span></label>
+          <label><?php echo transWord($_SESSION['Lang'],'username','Username') ?>  <span class="text-danger">*</span></label>
             <input type="text" name="username" class="form-control" autocomplete="off" value="<?php echo $data['username']; ?>" required>
             <div class="invalid-feedback">Username tidak boleh kosong.</div>
           </div>
 
           <div class="form-group col-lg-5">
-            <label>Password</label>
+          <label><?php echo transWord($_SESSION['Lang'],'password','Password') ?>  <span class="text-danger">*</span></label>
             <input type="password" name="password" class="form-control" placeholder="Kosongkan password jika tidak diubah" autocomplete="off">
           </div>
 
           <div class="form-group col-lg-5">
-            <label>Hak Akses <span class="text-danger">*</span></label>
+          <label><?php echo transWord($_SESSION['Lang'],'hakAkses','Hak Akses') ?> <span class="text-danger">*</span></label>
             <select name="hak_akses" class="form-control chosen-select" autocomplete="off" required>
               <option value="<?php echo $data['hak_akses']; ?>"><?php echo $data['hak_akses']; ?></option>
-              <option disabled value="">-- Pilih --</option>
-              <option value="Administrator">Administrator</option>
-              <option value="Admin Gudang">Admin Gudang</option>
-              <option value="Kepala Gudang">Kepala Gudang</option>
+              <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?>  --</option>
+              <option value="Administrator"><?php echo transWord($_SESSION['Lang'], 'Administrator', 'Administrator') ?> </option>
+              <option value="Admin Gudang"><?php echo transWord($_SESSION['Lang'], 'Admin Gudang', 'Admin Gudang') ?> </option>
+              <option value="Kepala Gudang"><?php echo transWord($_SESSION['Lang'], 'Kepala Gudang', 'Kepala Gudang') ?> </option>
             </select>
             <div class="invalid-feedback">Hak akses tidak boleh kosong.</div>
           </div>
+
         </div>
         <div class="card-action">
           <!-- tombol simpan data -->
@@ -85,7 +86,7 @@ else {
 
 
           <!-- tombol kembali ke halaman data user -->
-          <a href="?module=user" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+          <a href="?module=user" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a>
         </div>
       </form>
     </div>

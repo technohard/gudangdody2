@@ -111,15 +111,24 @@ else { ?>
 
 
               <div class="form-group">
-                <label><?php echo transWord($_SESSION['Lang'],'dokumenPabean','Dokumen Pebean') ?>  <span class="text-danger">*</span></label>
-                <div class="input-group">
-                  <select name="jns_dok" id="jns_dok" class="form-control">
-                    <option value=""> - </option>
-                    <option value="PPKEK">PPKEK</option>
-                    <option value="Freemovement">Freemovement</option>
+                <label><?php echo transWord($_SESSION['Lang'],'dokumenPabean','Dokumen Pabean') ?> <span class="text-danger">*</span></label>
+                <select name="jns_dok" id="jns_dok" class="form-control">
+                  <option value=""> - </option>
+                  <option value="0407020">BC 2.0</option>
+                  <option value="0407632">PPKEK Pengeluaran TLDDP</option>
+                  <option value="0407030">BC 30</option>
+                  <option value="0407621">PPKEK Pengeluaran Fasilitas</option>
+                  <option value="0407613">PPKEK Pemasukan TLDDP</option>
+                  <option value="0407000">Dokumen Pabean</option>
+                  <option value="0407611">PPKEK Pemasukan LDP</option>
+                  <option value="0407631">PPKEK Pengeluaran LDP</option>
+                  <option value="0407027">BC 2.7</option>
+                  <option value="0407052">FTZ 02</option>
+                  <option value="0407023">BC 2.3</option>
+                  <option value="0407008">Free Movement</option>
 
-                  </select>
-                </div>
+                </select>
+
               </div>
 
 

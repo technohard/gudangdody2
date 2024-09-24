@@ -31,7 +31,7 @@ else { ?>
         <div class="card">
             <div class="card-header">
                 <!-- judul form -->
-                <div class="card-title"><?php echo transWord($_SESSION['Lang'],'entriDataBarangAdjustment','Entri Data Barang Adjustment') ?></div>
+                <div class="card-title"><?php echo transWord($_SESSION['Lang'],'entriDataBarangAdjustment','Entri Data Barang Adjustment') ?> </div>
             </div>
             <!-- form entri data -->
             <form action="modules/laporan_adjustmen/proses_entri.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -63,7 +63,7 @@ else { ?>
                                 // menambahkan karakter "TM-" diawal dan karakter "0" disebelah kiri nomor urut
                                 $id_transaksi = 'TA-' . str_pad($nomor_urut, 7, '0', STR_PAD_LEFT);
                                 ?>
-                                <label><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?> <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'iDTransaksi','ID Transaksi') ?>  <span class="text-danger">*</span></label>
                                 <!-- tampilkan "id_transaksi" -->
                                 <input type="text" name="id_transaksi" class="form-control" value="<?php echo $id_transaksi; ?>">
                             </div>
@@ -71,9 +71,9 @@ else { ?>
 
                         <div class="col-md-5 ml-auto">
                             <div class="form-group">
-                                <label><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?>  <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'tanggal','Tanggal') ?> <span class="text-danger">*</span></label>
                                 <input type="text" name="tanggal" class="form-control date-picker" autocomplete="off" value="<?php echo date('d-m-Y'); ?>" required>
-                                <div class="invalid-feedback">Tanggal tidak boleh kosong.</div>
+                                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'Tanggal tidak boleh kosong','Tanggal tidak boleh kosong') ?>.</div>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ else { ?>
                     <div class="row">
                         <div class="col-md-7">
                             <div class="form-group">
-                                <label><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?>  <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'barang','Barang') ?> <span class="text-danger">*</span></label>
                                 <select id="data_barang" name="barang" class="form-control chosen-select" autocomplete="off" required>
                                     <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?> --</option>
                                     <?php
@@ -96,15 +96,51 @@ else { ?>
                                     }
                                     ?>
                                 </select>
-                                <div class="invalid-feedback">Barang tidak boleh kosong.</div>
+                                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'Barang tidak boleh kosong','Barang tidak boleh kosong') ?> .</div>
                             </div>
 
                             <div class="form-group">
-                                <label><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?>  <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'stok','Stok') ?> <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="text" id="data_stok" name="stok" class="form-control" readonly>
                                     <div id="data_satuan" class="input-group-append"></div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo transWord($_SESSION['Lang'],'dokumenPabean','Dokumen Pabean') ?> <span class="text-danger"> <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <select name="jns_dok" id="jns_dok" class="form-control">
+                                        <option value=""> - </option>
+                                        <option value="0407020">BC 2.0</option>
+                                        <option value="0407632">PPKEK Pengeluaran TLDDP</option>
+                                        <option value="0407030">BC 30</option>
+                                        <option value="0407621">PPKEK Pengeluaran Fasilitas</option>
+                                        <option value="0407613">PPKEK Pemasukan TLDDP</option>
+                                        <option value="0407000">Dokumen Pabean</option>
+                                        <option value="0407611">PPKEK Pemasukan LDP</option>
+                                        <option value="0407631">PPKEK Pengeluaran LDP</option>
+                                        <option value="0407027">BC 2.7</option>
+                                        <option value="0407052">FTZ 02</option>
+                                        <option value="0407023">BC 2.3</option>
+                                        <option value="0407008">Free Movement</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label><?php echo transWord($_SESSION['Lang'],'nomorDokumen','Nomor Dokumen') ?> <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" id="no_dok" name="no_dok" class="form-control">
+                                    <div id="data_satuan" class="input-group-append"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo transWord($_SESSION['Lang'],'tanggalDokumen','Tanggal Dokumen') ?> </label>
+                                <input type="text" name="tgl_dok" class="form-control date-picker" autocomplete="off" value="<?php echo date('d-m-Y'); ?>">
+                                <!-- <div class="invalid-feedback">Tanggal tidak boleh kosong.</div> -->
                             </div>
 
                             <div class="form-group">
@@ -123,15 +159,20 @@ else { ?>
                             <div class="form-group">
                                 <label><?php echo transWord($_SESSION['Lang'],'jumlahPenyesuaian','Jumlah Penyesuaian') ?>  (+/-)<span class="text-danger">*</span></label>
                                 <input type="number" id="jumlah" name="jumlah" class="form-control" autocomplete="off" required>
-                                <div class="invalid-feedback">Jumlah penyesuaian tidak boleh kosong.</div>
+                                <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'],'Jumlah penyesuaian tidak boleh kosong','Jumlah penyesuaian tidak boleh kosong') ?>.</div>
                             </div>
 
                             <div class="form-group">
-                                <label><?php echo transWord($_SESSION['Lang'],'totalStok','Total Stok') ?>  <span class="text-danger">*</span></label>
+                                <label><?php echo transWord($_SESSION['Lang'],'totalStok','Total Stok') ?> <span class="text-danger">*</span></label>
                                 <input type="text" id="total" name="total" class="form-control" readonly>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <label><?php echo transWord($_SESSION['Lang'],'namaPengirim','Nama Pengirim') ?> <span class="text-danger"><span class="text-danger">*</span></label>
+                                <input type="text" id="nama_pengirim" name="nama_pengirim" class="form-control">
+                            </div>
+
+
 
 
                         </div>
@@ -139,12 +180,9 @@ else { ?>
                     </div>
                     <div class="card-action">
                         <!-- tombol simpan data -->
-                        <!-- <input type="submit" name="simpan" value="Simpan" class="btn btn-secondary btn-round pl-4 pr-4 mr-2"> -->
-                        <button class="btn btn-secondary btn-round pl-4 pr-4 mr-2" type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>">
-                            <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
-                        </button>
+                        <input type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>" class="btn btn-secondary btn-round pl-4 pr-4 mr-2">
                         <!-- tombol kembali ke halaman data barang masuk -->
-                        <a href="?module=laporan_adjustmen" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?> </a>
+                        <a href="?module=laporan_adjustmen" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a>
                     </div>
 
                 </div>
@@ -213,12 +251,12 @@ else { ?>
                     // total stok kosong
                     var total_stok = "";
                 }
-                
+
                 // jika "jumlah" sudah diisi
                 else {
                     // hitung total stok
                     var total_stok = eval(stok) + eval(jumlah);
-                    if(total_stok<0){
+                    if (total_stok < 0) {
                         $('#pesan').html(
                             '<div class="alert alert-notify alert-warning alert-dismissible fade show" role="alert"><span data-notify="icon" class="fas fa-exclamation"></span><span data-notify="title" class="text-warning">Peringatan!</span> <span data-notify="message">total stok tidak boleh kurang dari 0 (nol).</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
                         );
@@ -228,11 +266,11 @@ else { ?>
                 // tampilkan total stok
                 $('#total').val(total_stok);
 
-                $('#keterangan').focus();
+                $('#jns_dok').focus();
             });
 
 
-            
+
         });
     </script>
 <?php } ?>

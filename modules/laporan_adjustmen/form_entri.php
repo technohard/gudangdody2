@@ -176,7 +176,7 @@ else { ?>
              <?php echo transWord($_SESSION['Lang'],'simpan','Simpan') ?>
            </button>
       <!-- tombol kembali ke halaman data barang -->
-      <a href="?module=barang" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+      <a href="?module=barang" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a>
     </div>
     </form>
   </div>

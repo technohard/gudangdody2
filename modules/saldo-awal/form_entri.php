@@ -104,7 +104,7 @@ else { ?>
            </button>
 
             <!-- tombol kembali ke halaman data barang masuk -->
-            <a href="?module=barang_masuk" class="btn btn-default btn-round pl-4 pr-4">Batal</a>
+            <a href="?module=barang_masuk" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a>
           </div>
 
         </div>

@@ -161,6 +161,11 @@ else {
     include "modules/profil/form_ubah.php";
   }
 
+  elseif ($_GET['module'] == 'hakakses' && $_SESSION['hak_akses'] == 'Administrator') {
+    // panggil file form ubah user
+    include "modules/hakakses/tampil_data.php";
+  }
+
   elseif ($_GET['module'] == 'cleansing' && $_SESSION['hak_akses'] == 'Administrator') {
     // panggil file form ubah user
     include "modules/cleansing/form_proses.php";

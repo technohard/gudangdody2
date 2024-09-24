@@ -55,11 +55,11 @@ else { ?>
             <label><?php echo transWord($_SESSION['Lang'],'hakAkses','Hak Akses') ?> <span class="text-danger">*</span></label>
             <select name="hak_akses" class="form-control chosen-select" autocomplete="off" required>
               <option selected disabled value="">-- <?php echo transWord($_SESSION['Lang'],'pilih','Pilih') ?>  --</option>
-              <option value="Administrator">Administrator</option>
-              <option value="Admin Gudang">Admin Gudang</option>
-              <option value="Kepala Gudang">Kepala Gudang</option>
+              <option value="Administrator"><?php echo transWord($_SESSION['Lang'], 'Administrator', 'Administrator') ?> </option>
+              <option value="Admin Gudang"><?php echo transWord($_SESSION['Lang'], 'Admin Gudang', 'Admin Gudang') ?> </option>
+              <option value="Kepala Gudang"><?php echo transWord($_SESSION['Lang'], 'Kepala Gudang', 'Kepala Gudang') ?> </option>
             </select>
-            <div class="invalid-feedback">Hak akses tidak boleh kosong.</div>
+            <div class="invalid-feedback"><?php echo transWord($_SESSION['Lang'], 'Hak akses tidak boleh kosong', 'Hak akses tidak boleh kosong') ?></div>
           </div>
         </div>
         <div class="card-action">

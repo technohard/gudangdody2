@@ -108,7 +108,7 @@ else {
           <!-- tombol simpan data -->
           <input type="submit" name="simpan" value="<?php echo transWord($_SESSION['Lang'],'proses','Proses') ?> " class="btn btn-secondary btn-round pl-4 pr-4 mr-2">
           <!-- tombol kembali ke halaman data user -->
-          <!-- <a href="?module=saldo_awal_final" class="btn btn-default btn-round pl-4 pr-4">Batal</a> -->
+          <!-- <a href="?module=saldo_awal_final" class="btn btn-default btn-round pl-4 pr-4"><?php echo transWord($_SESSION['Lang'],'batal','Batal') ?></a> -->
         </div>
       </form>
     </div>
